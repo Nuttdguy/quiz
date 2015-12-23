@@ -20,7 +20,7 @@
 			antArray: ['Fire Ant', 'Meat Eating Ant', 'Argentine Ant', 'Bull Ant', 'Saifu Ant', 'Bullhorn Acacia Ant', 'Green Tree Ant', 'Army Ant'],
 			spiderArray: ['Camel Spider', 'Fringed Ornamental Tarantula', 'Mouse Spider', 'Black Widow', 'Brown Recluse', 'Sydney Funnel Web', 'Brazilian Wandering Spider'],
 			snakeArray: ['Rattle Snake', 'Death Adder', 'Viper', 'Black Mamba', 'Blue Krait', 'Inland Taipan' ],
-			posionousArray: ['Box Jellyfish', 'King Cobra', 'Blue Ringed Octopus', 'Death Stalker Scorpion', 'Brazillian Wandering Spider', 'Puffer Fish'],
+			poisonousArray: ['Box Jellyfish', 'King Cobra', 'Blue Ringed Octopus', 'Death Stalker Scorpion', 'Brazillian Wandering Spider', 'Puffer Fish'],
 			largestInsectArray: ['Titan Beetle', 'Elephant Beetle', 'Giant Long-Legged Katydids', 'Goliath Beetle', 'Giant Camel Spiders', 'Giant Weta'],
 		}
 		

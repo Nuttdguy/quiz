@@ -78,15 +78,11 @@ span {
 /*------------------------------*/
 
 .game-container {
-	height: 560px;
+	height: 620px;
 	position: relative;
 	top: 0;
 	left: 0;
 }
-
-
-
-
 
 
 
@@ -95,7 +91,7 @@ span {
 /*------------------------------*/
 
 .question-container {
-	height: 560px;
+	height: 620px;
 	width: 100%;
 	position: relative;
 	top: 0;
@@ -110,7 +106,7 @@ span {
 
 .active-question > h2 {
 	padding-top: 30px;
-	width: 50%;
+	width: 80%;
 	margin: 0 auto;
 /*	min-width: 400px;*/
 	height: 100px;
@@ -121,7 +117,8 @@ span {
 	display: table;
 	width: 100%;
 	margin: 0 auto;
-	height: 430px;
+	height: 380px;
+	color: #fff;
 }
 
 .active-question li {
@@ -132,7 +129,25 @@ span {
 	height: 140px;
 	display: inline-block;
 	margin: 20px 20px;
-	background-color: orangered;
+	background-image: url(http://themysteriousworld.com/wp-content/uploads/2014/03/fireant-1024x708.jpg);
+	background-size: cover;
+}
+
+.active-question li span {
+	display: block;
+	height: 140px;
+	width: 100%;
+	background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5))
+}
+
+.active-question button {
+	width: 340px;
+	height: 80px;
+	background-color: blue;
+	color: white;
+	font-size: 2em;
+	text-transform: uppercase;
+	padding: 10px;
 }
 
 /*------------------------------*/
@@ -140,7 +155,7 @@ span {
 /*------------------------------*/
 
 .hidden-answer-overlay {
-	height: 560px;
+	height: 620px;
 	text-align: center;
 	display: none;
 	background-color: rgba(0, 0, 0, 0.93);
@@ -182,7 +197,7 @@ span {
 /*------------------------------*/
 
 .score-container {
-	height: 260px;
+	height: 160px;
 	text-align: center;
 	background-color: rgba(0, 0, 0, 0.33);
 	color: rgba(165, 50, 50, 0.984);
@@ -193,13 +208,13 @@ span {
 /*------------------------------*/
 
 .score-keeper {
-	height: 260px;
+	height: 160px;
 	z-index: 1;
 /*	visibility: hidden;*/
 }
 
 .score-keeper > h2 {
-	padding-top: 80px;
+	padding: 40px 20px;
 	font-size: 3em;
 }
 
@@ -208,17 +223,17 @@ span {
 /*  HIDDEN QUIZ CATEGORY STYLES   */
 /*------------------------------*/
 
-.hidden-quiz-category-selector {
+.hidden-category-overlay{
 	position: relative;
-	top: -260px;
+	top: -160px;
 	height: 260px;
 	background-color: black;
 	display: none;
 	z-index: 99;
 }
 
-.hidden-quiz-category-selector button {
-	margin: 60px 40px;
+.hidden-category-overlay button {
+	margin: 40px 20px;
 	padding: 20px;
 	font-size: 2.5em;
 	width: 340px;

@@ -6,7 +6,7 @@ $(document).ready(function() {
 		'Which one is the most dangerous spider in the world?', 
 		'Which one is the most dangerous snake in the world?',
 		'Which one of these is the most poisonous?',
-		'Which one of these is considered the largest insect in the world?' 
+		'Which one of these is considered the largest insect in the world?'
 	]
 	
 //	var insectQuestions = { // can't get random questions with objects?? //
@@ -43,35 +43,146 @@ $(document).ready(function() {
 
 // -------- END QUESTIONS AND ANSWERS -------- //
 	
-	var score = 0;
-	var currentInsectQuestionArray = [];
-	var questionLength = insectQuestions.length;
-	var questionShuffler = [];
+	var score = 0;	
+	var duplicateInsectQuestions = []; 	// getting copy of insect question array
+
 	
 	newGame();
-//	getQuestion();
-	
-//	console.log(insectQuestions[1]);
-//	console.log(questionLength);
+	compileQuestions();
+//	console.log(duplicateInsectQuestions + " --- top ") -- verified it was returning array to top
+
+//	console.log((duplicateInsectQuestions instanceof Array) + " ---- outside");
+//	console.log((duplicateInsectQuestions[1]) + " ---- outside");
+//	console.log(insectQuestions instanceof Array);
 	
 	function newGame() {
 		
 		$('.information-header').on('click', function() {
-			console.log(questionShuffler);
+			
 		})
+		
+		$('.question-container .submit').on('click', function() {
+			getQuestion(duplicateInsectQuestions);
+		})
+		
 	}
 	
-	function getQuestion() {
-		for(i = 0; i < questionLength; i++) {
-			questionShuffler.push(i);
+	
+	function getNumber(min, max) { // getting random number to use for question index 
+		return Math.floor(Math.random() * (max - min)) + min;
+	}
+	
+	
+	function compileQuestions() {
+		
+		for (var i = 0; i < insectQuestions.length; ) {
+				duplicateInsectQuestions = insectQuestions;
+//				console.log(i + ' --- inside compile questions ')  // verified that it's returning a copy of insectQuestions
+				i++;
+			}
+//		console.log(duplicateInsectQuestions + ' --- inside compile questions ') verified to work
+		return duplicateInsectQuestions;
+	}
+	
+//	var questionNumber;
+	function getQuestion(d) { 
+		
+		var questionNumber = 0; //getNumber(0, d.length );
+		var activeInsectQuestion = d[questionNumber];
+		
+		$('.question-container h2').text(activeInsectQuestion);
+		
+		var prepAntImages = insectImages.antImages;
+		var prepSpiderImages = insectImages.spiderImages;
+		var prepSnakeImages = insectImages.snakeImages;
+		var prepPoisonousImages = insectImages.poisonousImages;
+		var prepLargestInsectImages = insectImages.largestInsectImages;
+		
+		var prepAntChoices = insectChoices.antArray;
+		var prepSpiderChoices = insectChoices.spiderArray;
+		var prepSnakeChoices = insectChoices.snakeArray;
+		var prepPoisonousChoices = insectChoices.posionousArray;
+		var prepLargestInsectChoices = insectChoices.largestInsectArray;
+		
+		var prepAntChoicesLength = insectChoices.antArray.length;
+		var prepSpiderChoicesLength = insectChoices.spiderArray.length;
+		var prepSnakeChoicesLength = insectChoices.snakeArray.length;
+		var prepPoisonousChoicesLength = insectChoices.poisonousArray.length;
+		var prepLargestChoicesLength = insectChoices.largestInsectArray.length;
+		
+		var arrayLength = duplicateInsectQuestions.length;
+		var imageOptions = 4;
+		var choicesToLoad = [];
+		var choicesToLoadLength = choicesToLoad.length;
+		var imagesToLoad = [];
+		var imagesToLoadLength = imagesToLoad.length;
+		
+		if(questionNumber === 0) {
+			for(var i = 0; i < imageOptions; i++) {
+				choicesToLoad.push('<li>'+prepAntChoices[i]+'</li>');
+				imagesToLoad.push(prepAntImages[i]);
+				console.log(i + ' --- i value');
+			}
+			console.log(choicesToLoad);
+			console.log(imagesToLoad);
+			console.log(insectChoices.antArray.length)
 		}
 		
-		var pickQuestion = Math.floor(Math.random(questionLength)*questionLength);
-		
-		$('.active-question h2').text(insectQuestions[pickQuestion]);
-		console.log(pickQuestion);
+//		loadQuestion(imageOptions, choicesToLoad, imagesToLoad);
 	}
-	
+			
+//	function loadQuestion(choicesToLoad, imagesToLoad, imageOptions, questionNumber) {
+	function loadQuestion(al, io, ctl, ctll, itl, itll) {
+		console.log(al);
+		
+		if()
+			
+	};	
+
+			
+//			
+//		} else if(questionNumber === 2) {
+//			var counter = 1;
+//			for(var i = 0; i < duplicateInsectQuestions.length; i++) {
+//				var propImage = insectImages.antImages; 
+//				$('.active-question ul').append('<li>'+duplicateInsectQuestions[i]+'</li>');
+//				$('.active-question ul li').addClass('option'+counter);
+//				$('.option' + counter).css({'background-image': 'url(' + insectImages.antImages[i] + ')'});
+//				counter++;
+//			}  
+//		} else if(questionNumber === 3) {
+//			var counter = 1;
+//			for(var i = 0; i < duplicateInsectQuestions.length; i++) {
+//				var propImage = insectImages.antImages; 
+//				$('.active-question ul').append('<li>'+duplicateInsectQuestions[i]+'</li>');
+//				$('.active-question ul li').addClass('option'+counter);
+//				$('.option' + counter).css({'background-image': 'url(' + insectImages.antImages[i] + ')'});
+//				counter++;
+//			}  
+//		} else if(questionNumber === 4) {
+//			var counter = 1;
+//			for(var i = 0; i < duplicateInsectQuestions.length; i++) {
+//				var propImage = insectImages.antImages; 
+//				$('.active-question ul').append('<li>'+duplicateInsectQuestions[i]+'</li>');
+//				$('.active-question ul li').addClass('option'+counter);
+//				$('.option' + counter).css({'background-image': 'url(' + insectImages.antImages[i] + ')'});
+//				counter++;
+//			}  
+//		}
+		
+		
+		
+		
+//		d.splice(questionNumber, 1);
+//		console.log(d + " ---- inside array");
+//		console.log(questionNumber + " ---- question number")
+//		return d;
+//	}
+
+//	function loadImages() {
+//		console.log(questionNumber + " --- in load images"); 
+//	}
+
 	
 })
 
