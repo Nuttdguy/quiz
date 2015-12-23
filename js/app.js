@@ -89,10 +89,6 @@ $(document).ready(function() {
 		
 //		var prepDuplicateQuestions = duplicateInsectQuestions;
 //		console.log(prepDuplicateQuestions);
-		var questionNumber = 0; //getNumber(0, d.length );
-		var activeInsectQuestion = duplicateInsectQuestions[questionNumber];
-		
-		$('.question-container h2').text(activeInsectQuestion);
 		
 		var prepAntImages = insectImages.antImages;
 		var prepSpiderImages = insectImages.spiderImages;
@@ -111,7 +107,7 @@ $(document).ready(function() {
 		var prepSnakeChoicesLength = insectChoices.snakeArray.length;
 		var prepPoisonousChoicesLength = insectChoices.posionousArray.length;
 		var prepLargestChoicesLength = insectChoices.largestInsectArray.length;
-		
+
 //		var array = duplicateInsectQuestions; // Don't think array length of question is needed. Just need the index number
 		var imageOptions = 4;
 		var choicesToLoad = [];
@@ -123,108 +119,82 @@ $(document).ready(function() {
 			for(var i = 0; i < prepAntChoicesLength; i++) {
 				choicesToLoad.push(prepAntChoices[i]);
 				imagesToLoad.push(prepAntImages[i]);
-				console.log(i + ' --- i value');
 			}
-			console.log(choicesToLoad);
-			console.log(imagesToLoad);
-			console.log(insectChoices.antArray.length)
+			
+			imagesToLoadLength = imagesToLoad.length;
+			choicesToLoadLength = choicesToLoad.length;
 			loadQuestion(imageOptions, choicesToLoad, choicesToLoadLength, imagesToLoad, imagesToLoadLength);
 		}
 		
 	}
-			
-//	function loadQuestion(choicesToLoad, imagesToLoad, imageOptions, questionNumber) {
-	function loadQuestion(io, ctl, ctll, itl, itll) {
-		console.log(ctll);
-		var linksToAppend = [];
+
+
+	function loadQuestion(io, ctl, ctll, itl, itll) {  //	function loadQuestion(choicesToLoad, imagesToLoad, imageOptions, questionNumber)
+		console.log(ctll + ' -- ctll working now');
+		console.log(itll + ' -- itll is working');
+		console.log(io + ' -- io is working')
+
 		var prepLinkTags = '<li><span> </span></li>';
-		var startIndex = 5;   //getNumber(0, ctll);
+		var startIndex = Math.floor((Math.random() * (8 - 0)) + 0);
+		console.log(startIndex);
 
-		if(startIndex > io) {
-			var startIndex = (startIndex - io);
-			var numLinks = (startIndex + io);
-
-			for(var i = startIndex; i < numLinks; i++) {
-			var $addUl = $('.active-question ul').append(prepLinkTags).appendTo('.active-question ul');
-			var $addSpanText = $('.active-question span').last().text(ctl[i]);
-			var $addLiImageStyle = $('.active-question li').last().css({'background-image': 'url('+itl[i]+')', 'background-size': 'cover'});
-			var $addSpanStyle = $('.active-question span').last().css({'background': 'linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5))'});
+		if(startIndex > io) { // 5 > 4 
+			
+//			var startIndexLoop = (startIndex - io); // 5 - 4 = 1
+			var numLinks = (startIndex + io); // 1 + 4 = 5
+			var start = startIndex; // 7
+			var stop1 = start - 3; // 7 - 4 = 3 
+			
+														// 7 < 11 
+			for(var i = start; i < numLinks; i--) {
+				var $addUl = $('.active-question ul').append(prepLinkTags).appendTo('.active-question ul');
+				var $addSpanText = $('.active-question span').last().text(ctl[i]);
+				var $addLiImageStyle = $('.active-question li').last().css({'background-image': 'url('+itl[i]+')', 'background-size': 'cover'});
+				var $addSpanStyle = $('.active-question span').last().css({'background': 'linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5))'});
 				
-				if(i === 0) {
-						$addUl;
-						$addSpanText;
-						$addLiImageStyle;
-						$addSpanStyle;
-				} else if(i === 1) {
-						$addUl;
-						$addSpanText;
-						$addLiImageStyle;
-						$addSpanStyle;
-				}	else if(i === 2) {
-						$addUl;
-						$addSpanText;
-						$addLiImageStyle;
-						$addSpanStyle;
-				} else if(i === 3) {
-						$addUl;
-						$addSpanText;
-						$addLiImageStyle;
-						$addSpanStyle;
+				if (i === stop1 ) {
+					return;
 				} else {
-						$addUl;
-						$addSpanText;
-						$addLiImageStyle;
-						$addSpanStyle;
+					$addUl;
+					$addSpanText;
+					$addLiImageStyle;
+					$addSpanStyle; 
 				}
-			}
+			} // END FIRST FOR LOOP
+		}
+		
+		if (startIndex < io) {
+			var start = startIndex; // 0
+			var stop2 = start + 4; // 0 + 3 = 3
+			console.log(i = " in second loop")
+												//	0 < 3 
+			for(var i = start; i < stop2 ; i++) {
+				var $addUl = $('.active-question ul').append(prepLinkTags).appendTo('.active-question ul');
+				var $addSpanText = $('.active-question span').last().text(ctl[i]);
+				var $addLiImageStyle = $('.active-question li').last().css({'background-image': 'url('+itl[i]+')', 'background-size': 'cover'});
+				var $addSpanStyle = $('.active-question span').last().css({'background': 'linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5))'});
+
+				if(i === stop2) {
+					return;
+				} else {
+					$addUl;
+					$addSpanText;
+					$addLiImageStyle;
+					$addSpanStyle;
+				}
+			} // END SECOND / CATCH LOOP
 		}
 			
 	}	
 
-			
-//			
-//		} else if(questionNumber === 2) {
-//			var counter = 1;
-//			for(var i = 0; i < duplicateInsectQuestions.length; i++) {
-//				var propImage = insectImages.antImages; 
-//				$('.active-question ul').append('<li>'+duplicateInsectQuestions[i]+'</li>');
-//				$('.active-question ul li').addClass('option'+counter);
-//				$('.option' + counter).css({'background-image': 'url(' + insectImages.antImages[i] + ')'});
-//				counter++;
-//			}  
-//		} else if(questionNumber === 3) {
-//			var counter = 1;
-//			for(var i = 0; i < duplicateInsectQuestions.length; i++) {
-//				var propImage = insectImages.antImages; 
-//				$('.active-question ul').append('<li>'+duplicateInsectQuestions[i]+'</li>');
-//				$('.active-question ul li').addClass('option'+counter);
-//				$('.option' + counter).css({'background-image': 'url(' + insectImages.antImages[i] + ')'});
-//				counter++;
-//			}  
-//		} else if(questionNumber === 4) {
-//			var counter = 1;
-//			for(var i = 0; i < duplicateInsectQuestions.length; i++) {
-//				var propImage = insectImages.antImages; 
-//				$('.active-question ul').append('<li>'+duplicateInsectQuestions[i]+'</li>');
-//				$('.active-question ul li').addClass('option'+counter);
-//				$('.option' + counter).css({'background-image': 'url(' + insectImages.antImages[i] + ')'});
-//				counter++;
-//			}  
-//		}
+	function loadQuestion() {
+		var questionNumber = 0; //getNumber(0, d.length );
+		var activeInsectQuestion = duplicateInsectQuestions[questionNumber];
 		
-		
-		
-		
-//		d.splice(questionNumber, 1);
-//		console.log(d + " ---- inside array");
-//		console.log(questionNumber + " ---- question number")
-//		return d;
-//	}
-
-//	function loadImages() {
-//		console.log(questionNumber + " --- in load images"); 
-//	}
-
+		$('.question-container h2').text(activeInsectQuestion);
+	}
+	
+	
 	
 })
 
