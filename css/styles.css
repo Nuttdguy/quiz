@@ -2,6 +2,10 @@
 /* BASIC STYLES */
 /*--------------------------*/
 
+body {
+	background-color: rgba(46, 85, 40, 0.19);
+}
+
 html, body, .main-container {
 	height: 100%;
 	margin: 0;

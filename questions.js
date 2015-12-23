@@ -1,21 +1,12 @@
-$(document).ready(function() {
-	
+//  Questions:
 //	-------- BEGIN QUESTIONS AND ANSWERS -------- //
-	var insectQuestions = [ 
-		'Which one is most dangerous ant in the world?', 
-		'Which one is the most dangerous spider in the world?', 
-		'Which one is the most dangerous snake in the world?',
-		'Which one of these is the most poisonous?',
-		'Which one of these is considered the largest insect in the world?' 
-	]
-	
-//	var insectQuestions = { // can't get random questions with objects?? //
-//		questionAnt: 'Which ant is most dangerous ant in the world?',
-//		questionSpider: 'Which spider is the most dangerous spider in the world?',
-//		questionSnakes: 'Which snake is the most dangerous snake in the world?',
-//		questionPoisonous: 'Which one of these is considered the most poisonous in the world?',
-//		questionLargestInsect: 'Which one of these is considered the largest insect in the world?' 
-//	}
+		var insectQuestions = {
+			questionAnt: 'Which ant is most dangerous ant in the world?',
+			questionSpider: 'Which spider is the most dangerous spider in the world?',
+			questionSnakes: 'Which snake is the most dangerous snake in the world?',
+			questionPoisonous: 'Which one of these is considered the most poisonous in the world?',
+			questionLargestInsect: 'Which one of these is considered the largest insect in the world?' 
+		}
 		
 		var correctAnswers = {
 			correctAnt: ['Bull Ant', 'The most dangerous ant in the world is the bulldog ant (Myrmecia pyriformis) found in coastal regions in Australia. In attack it uses its sting and jaws simultaneously. There have been at least three human fatalities since 1936, the latest a Victorian farmer in 1988. The bull dog ant earned its name because of its ferocity and determination during an attack. It is extremely aggressive and shows little fear of human beings, stinging a number of times in quick succession and therefore injecting more venom with each bite. In an attack, the ant will hold on to its victim with long, toothed mandibles, curl its body underheath and thrust its long barbless sting into the skin. On a few occasions this sting has been enough to kill adults within 15 minutes.'],
@@ -41,53 +32,5 @@ $(document).ready(function() {
 			largestInsectImages: ['http://s-ak.buzzfed.com/static/enhanced/terminal01/2011/3/22/12/enhanced-buzz-3415-1300812798-4.jpg', 'http://s3-ak.buzzfeed.com/static/enhanced/terminal01/2011/3/22/12/enhanced-buzz-3402-1300812938-8.jpg', 'http://s3-ak.buzzfeed.com/static/enhanced/terminal01/2011/3/22/12/enhanced-buzz-3420-1300812883-5.jpg', 'http://s3-ak.buzzfeed.com/static/enhanced/terminal01/2011/3/22/12/enhanced-buzz-3418-1300813082-11.jpg', 'http://s3-ak.buzzfeed.com/static/enhanced/terminal01/2011/3/22/13/enhanced-buzz-3418-1300813341-12.jpg', 'http://i.dailymail.co.uk/i/pix/2011/12/01/article-2068547-0F02AA4A00000578-492_634x370.jpg']	
 		}
 
-// -------- END QUESTIONS AND ANSWERS -------- //
-	
-	var score = 0;
-	var currentInsectQuestionArray = [];
-	var questionLength = insectQuestions.length;
-	var questionShuffler = [];
-	
-	newGame();
-//	getQuestion();
-	
-//	console.log(insectQuestions[1]);
-//	console.log(questionLength);
-	
-	function newGame() {
-		
-		$('.information-header').on('click', function() {
-			console.log(questionShuffler);
-		})
-	}
-	
-	function getQuestion() {
-		for(i = 0; i < questionLength; i++) {
-			questionShuffler.push(i);
-		}
-		
-		var pickQuestion = Math.floor(Math.random(questionLength)*questionLength);
-		
-		$('.active-question h2').text(insectQuestions[pickQuestion]);
-		console.log(pickQuestion);
-	}
-	
-	
-})
 
 
-
-
-
-
-
-
-
-
-
-	function isAnswerCorrect() {}
-	
-	function gameSummary() {}
-	
-	function updateGame() {}
-	
