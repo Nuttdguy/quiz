@@ -122,7 +122,8 @@ span {
 }
 
 .active-question li {
-	display: table-cell;
+/*	display: table-cell;*/
+	padding-top: px;
 	font-size: 2em;
 	width: 42.5%;
 	max-width: 450px;
@@ -135,8 +136,9 @@ span {
 
 .active-question li span {
 	display: block;
-	height: 140px;
+	line-height: 140px;
 	width: 100%;
+	z-index: 2;
 	background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5))
 }
 

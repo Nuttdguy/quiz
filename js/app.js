@@ -48,7 +48,7 @@ $(document).ready(function() {
 
 	
 	newGame();
-	compileQuestions();
+//	getInsectQuestions();
 //	console.log(duplicateInsectQuestions + " --- top ") -- verified it was returning array to top
 
 //	console.log((duplicateInsectQuestions instanceof Array) + " ---- outside");
@@ -62,7 +62,8 @@ $(document).ready(function() {
 		})
 		
 		$('.question-container .submit').on('click', function() {
-			getQuestion(duplicateInsectQuestions);
+			getInsectQuestions();
+			getQuestion();
 		})
 		
 	}
@@ -73,22 +74,23 @@ $(document).ready(function() {
 	}
 	
 	
-	function compileQuestions() {
+	function getInsectQuestions() {	
+		var prepInsectQuestionLength = insectQuestions.length;
 		
-		for (var i = 0; i < insectQuestions.length; ) {
+		for (var i = 0; i < prepInsectQuestionLength; ) {
 				duplicateInsectQuestions = insectQuestions;
-//				console.log(i + ' --- inside compile questions ')  // verified that it's returning a copy of insectQuestions
 				i++;
 			}
-//		console.log(duplicateInsectQuestions + ' --- inside compile questions ') verified to work
 		return duplicateInsectQuestions;
 	}
 	
-//	var questionNumber;
-	function getQuestion(d) { 
+
+	function getQuestion() { 
 		
+//		var prepDuplicateQuestions = duplicateInsectQuestions;
+//		console.log(prepDuplicateQuestions);
 		var questionNumber = 0; //getNumber(0, d.length );
-		var activeInsectQuestion = d[questionNumber];
+		var activeInsectQuestion = duplicateInsectQuestions[questionNumber];
 		
 		$('.question-container h2').text(activeInsectQuestion);
 		
@@ -107,10 +109,10 @@ $(document).ready(function() {
 		var prepAntChoicesLength = insectChoices.antArray.length;
 		var prepSpiderChoicesLength = insectChoices.spiderArray.length;
 		var prepSnakeChoicesLength = insectChoices.snakeArray.length;
-		var prepPoisonousChoicesLength = insectChoices.poisonousArray.length;
+		var prepPoisonousChoicesLength = insectChoices.posionousArray.length;
 		var prepLargestChoicesLength = insectChoices.largestInsectArray.length;
 		
-		var arrayLength = duplicateInsectQuestions.length;
+//		var array = duplicateInsectQuestions; // Don't think array length of question is needed. Just need the index number
 		var imageOptions = 4;
 		var choicesToLoad = [];
 		var choicesToLoadLength = choicesToLoad.length;
@@ -118,26 +120,66 @@ $(document).ready(function() {
 		var imagesToLoadLength = imagesToLoad.length;
 		
 		if(questionNumber === 0) {
-			for(var i = 0; i < imageOptions; i++) {
-				choicesToLoad.push('<li>'+prepAntChoices[i]+'</li>');
+			for(var i = 0; i < prepAntChoicesLength; i++) {
+				choicesToLoad.push(prepAntChoices[i]);
 				imagesToLoad.push(prepAntImages[i]);
 				console.log(i + ' --- i value');
 			}
 			console.log(choicesToLoad);
 			console.log(imagesToLoad);
 			console.log(insectChoices.antArray.length)
+			loadQuestion(imageOptions, choicesToLoad, choicesToLoadLength, imagesToLoad, imagesToLoadLength);
 		}
 		
-//		loadQuestion(imageOptions, choicesToLoad, imagesToLoad);
 	}
 			
 //	function loadQuestion(choicesToLoad, imagesToLoad, imageOptions, questionNumber) {
-	function loadQuestion(al, io, ctl, ctll, itl, itll) {
-		console.log(al);
-		
-		if()
+	function loadQuestion(io, ctl, ctll, itl, itll) {
+		console.log(ctll);
+		var linksToAppend = [];
+		var prepLinkTags = '<li><span> </span></li>';
+		var startIndex = 5;   //getNumber(0, ctll);
+
+		if(startIndex > io) {
+			var startIndex = (startIndex - io);
+			var numLinks = (startIndex + io);
+
+			for(var i = startIndex; i < numLinks; i++) {
+			var $addUl = $('.active-question ul').append(prepLinkTags).appendTo('.active-question ul');
+			var $addSpanText = $('.active-question span').last().text(ctl[i]);
+			var $addLiImageStyle = $('.active-question li').last().css({'background-image': 'url('+itl[i]+')', 'background-size': 'cover'});
+			var $addSpanStyle = $('.active-question span').last().css({'background': 'linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5))'});
+				
+				if(i === 0) {
+						$addUl;
+						$addSpanText;
+						$addLiImageStyle;
+						$addSpanStyle;
+				} else if(i === 1) {
+						$addUl;
+						$addSpanText;
+						$addLiImageStyle;
+						$addSpanStyle;
+				}	else if(i === 2) {
+						$addUl;
+						$addSpanText;
+						$addLiImageStyle;
+						$addSpanStyle;
+				} else if(i === 3) {
+						$addUl;
+						$addSpanText;
+						$addLiImageStyle;
+						$addSpanStyle;
+				} else {
+						$addUl;
+						$addSpanText;
+						$addLiImageStyle;
+						$addSpanStyle;
+				}
+			}
+		}
 			
-	};	
+	}	
 
 			
 //			
