@@ -11,14 +11,15 @@ html, body, .main-container {
 	margin: 0;
 	padding: 0;
 	font-size: 16px;
+	font-family: 'amatic sc', arial, sans-serif;
 }
 
 h1 {
-	font-size: 2.5em;
+	font-size: 3em;
 }
 
 h2 {
-	font-size: 2.5em;
+	font-size: 2.75em;
 }
 
 /*
@@ -38,29 +39,18 @@ li {
 /*------------------------------*/
 
 .information-header {
-	height: 170px;
+	height: 140px;
 	margin: 0 auto;
 	text-align: center;
 	text-transform: uppercase;
 }
 
 h1 {
+	line-height: 80px;
 	padding: 20px;
+	font-size: 4em;
 }
 
-span {
-	vertical-align: middle;
-}
-
-.information-header h2 {
-	font-size: 2.3em;
-}
-
-.fa-play {
-	color: lawngreen;
-	font-size: 1.65em;
-	vertical-align: middle;
-}
 
 .information-header:after {
 	content: " ";
@@ -69,8 +59,6 @@ span {
 	width: 100%;
 	display: block;
 }
-
-
 
 
 /*------------------------------*/
@@ -84,19 +72,17 @@ span {
 	left: 0;
 }
 
-
-
 /*------------------------------*/
 /*  QUESTION CONTAINER STYLES   */
 /*------------------------------*/
 
 .question-container {
-	height: 620px;
+	height: 800px;
 	width: 100%;
 	position: relative;
 	top: 0;
 	left: 0;
-	z-index: 1;
+	z-index: 98;
 /*	visibility: hidden;  Temporarily hiding question box */
 }
 
@@ -116,40 +102,52 @@ span {
 .active-question > ul {
 	display: table;
 	width: 100%;
-	margin: 0 auto;
+	margin: 0 auto 40px;;
 	height: 380px;
 	color: #fff;
 }
 
 .active-question li {
 /*	display: table-cell;*/
-	padding-top: px;
+/*	border-radius: 8px;*/
+/*	padding-top: px;*/
 	font-size: 2em;
 	width: 42.5%;
 	max-width: 450px;
-	height: 140px;
+	height: 180px;
 	display: inline-block;
 	margin: 20px 20px;
-	background-image: url(http://themysteriousworld.com/wp-content/uploads/2014/03/fireant-1024x708.jpg);
-	background-size: cover;
 }
 
 .active-question li span {
+	height: 180px;
+/*	border-radius: 18px;*/
 	display: block;
-	line-height: 140px;
+	line-height: 160px;
 	width: 100%;
 	z-index: 2;
-	background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5))
+	background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5));
 }
+
+.active-question li span:hover {
+	background: linear-gradient(rgba(0,0,0,.8), rgba(0,0,0,.8));
+}
+
 
 .active-question button {
 	width: 340px;
-	height: 80px;
-	background-color: blue;
-	color: white;
+	height: 120px;
+	background-color: #008000;
+/*	border-radius: 18px;*/
+	color: #fff;
 	font-size: 2em;
 	text-transform: uppercase;
 	padding: 10px;
+}
+
+.active-question button:hover {
+	background-color: rgb(79, 214, 90);
+	transition: background-color 1s;
 }
 
 /*------------------------------*/
@@ -157,12 +155,12 @@ span {
 /*------------------------------*/
 
 .hidden-answer-overlay {
-	height: 620px;
+	height: 800px;
 	text-align: center;
 	display: none;
 	background-color: rgba(0, 0, 0, 0.93);
 	position: relative;
-	top: -560px;
+	top: -800px;
 	left: 0;
 	z-index: 99;
 }
@@ -191,6 +189,39 @@ span {
 	background-color: firebrick;
 	border: 1px solid #000;
 	color: #fff;
+}
+
+/*------------------------------*/
+/*  GAME START OVERLAY STYLES   */
+/*------------------------------*/
+
+.game-start-overlay {
+	height: 800px;
+	text-align: center;
+	visibility: hidden;
+	background-color: rgba(0, 0, 0, 0.93);
+	position: relative;
+	top: -1600px;
+	left: 0;
+	z-index: 100;
+}
+
+.game-start-overlay > button {
+	margin-top: 180px;
+	width: 8em;
+	height: 8em;
+	border-radius: 50%;
+/*	padding: 20px 20px;*/
+	font-size: 3em;
+	text-transform: uppercase;
+	background-color: #008000;
+	border: 1px solid #000;
+	color: #fff;
+}
+
+.game-start-overlay > button:hover {
+	background-color: rgb(79, 214, 90);
+	transition: background-color 1s;
 }
 
 

@@ -46,14 +46,8 @@ $(document).ready(function() {
 	var score = 0;	
 	var duplicateInsectQuestions = []; 	// getting copy of insect question array
 
-	
 	newGame();
-//	getInsectQuestions();
-//	console.log(duplicateInsectQuestions + " --- top ") -- verified it was returning array to top
 
-//	console.log((duplicateInsectQuestions instanceof Array) + " ---- outside");
-//	console.log((duplicateInsectQuestions[1]) + " ---- outside");
-//	console.log(insectQuestions instanceof Array);
 	
 	function newGame() {
 		
@@ -86,9 +80,6 @@ $(document).ready(function() {
 	
 
 	function getQuestion() { 
-		
-//		var prepDuplicateQuestions = duplicateInsectQuestions;
-//		console.log(prepDuplicateQuestions);
 		
 		var prepAntImages = insectImages.antImages;
 		var prepSpiderImages = insectImages.spiderImages;
