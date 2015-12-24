@@ -172,8 +172,8 @@ $(document).ready(function() {
 	function loadQuestion(io, ctl, ctll, itl, itll, utqn) {  //	function loadQuestion(choicesToLoad, imagesToLoad, imageOptions, questionNumber)
 		
 		var prepLinkTags = '<li><span> </span></li>';
-//		var startIndex = utqn; Deactivate to test 0 index
-		var startIndex = 0;
+//		var startIndex = utqn; Deactivate to test 3 index
+		var startIndex = 3;
 		var linkIndexForCorrectAnswer = getNumber(0, 4);
 
 		if(startIndex >= io) { // 1 > 4 -- false 
@@ -205,55 +205,40 @@ $(document).ready(function() {
 					$addSpanStyle; 
 				}
 			} // END 1ST FOR LOOP
-			return;
 		} // END OF 1ST "IF" STATEMENT
 		
-		if (startIndex < io && startIndex >= 1) { // 1 < 4 -- true
-			var stop = startIndex + 3; // 1 + 3 = 4  // SETTING STOP INDEX FOR LOOP
-			
-//			console.log(startIndex + ' ----- Second "IF" Start INDEX # at bottom')
-//			console.log(start + ' ----- Second "IF" **** START ***  # at bottom')
-											//	1 < 6 // LOOP IS TO INTERATE FOUR TIMES 1, 2, 3
+		if (startIndex < io && startIndex >= 1) { // FOR ONE TO 3 INDEX SITUATIONS
+			var stop = startIndex + 3;
 			for(var start = startIndex; start <= stop ; start++) {
-//				console.log (start + ' ---- Stop Starting Index Value')
-					// 0        (0 + 3) + 1 = 4;
-				if(start === (stop + 1)) {  // WHEN TRUE, STOPS LOOP -- PUT CORRECT ANSWER INTO ONE OF THE CLICKABLE LINKS
-					console.log(' Second inner if true -- top');
-					$('.active-question ul').append(prepLinkTags);
-					$('.active-question span').eq(linkIndexForCorrectAnswer).text(ctl[0]); // REPLACING TEXT WITH CORRECT ANSWER
-					$('.active-question li').eq(linkIndexForCorrectAnswer).css({'background-image': 'url('+itl[0]+')', 'background-size': 'cover'});
-					$('.active-question span').eq(linkIndexForCorrectAnswer).css({'background': 'linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5))'}); // APPLYING CSS STYLES
-					console.log(' Second inner if true -- bottom');
-					return;
-				}
 				
-				$('.active-question ul').append(prepLinkTags); //.appendTo('.active-question ul'); // SETTING VARIABLES; HAVE TO BE PRIVATE TO THE LOOP. OTHERWISE THE 'ITERATOR' DOESN'T REGISTER DYNAMICALLY.				
+				$('.active-question ul').append(prepLinkTags); // SETTING VARIABLES; HAVE TO BE PRIVATE TO THE LOOP. OTHERWISE THE 'ITERATOR' DOESN'T REGISTER DYNAMICALLY.				
 				$('.active-question span').last().text(ctl[start-1]); // ADDING TEXT TO THE LAST LINK CREATED.
 				$('.active-question li').last().css({'background-image': 'url('+itl[start-1]+')', 'background-size': 'cover'}); // APPLYING CSS TO NEW LINNK ELEMENT
 				$('.active-question span').last().css({'background': 'linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5))'}); // APPLYING CSS TO NEW SPAN ELEMENT
-			} // END 2ND / CATCH LOOP
-		} // END OF 2ND "IF" STATEMENT
-		
-		if (startIndex === 0) { // 1 < 4 -- true
-			var stop = startIndex + 4; // 1 + 3 = 4  // SETTING STOP INDEX FOR LOOP
-			console.log(startIndex + ' ----- THIRD "IF" Start INDEX # at bottom')
-	
-			for(var start = startIndex; start <= stop ; start++) {
-				console.log (start + ' ---- THIRD START Starting Index Value')
 				
-				if(start < stop) {
-					console.log(' Third inner if true -- top');
-					
-					$('.active-question ul').append(prepLinkTags);
-					$('.active-question span').last().text(ctl[start + 1]); // ADDING TEXT TO THE LAST LINK CREATED.
-					$('.active-question li').last().css({'background-image': 'url('+itl[start + 1]+')', 'background-size': 'cover'}); // APPLYING CSS TO NEW LINNK ELEMENT
-					$('.active-question span').last().css({'background': 'linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5))'}); // APPLYING CSS TO NEW SPAN ELEMENT
-				} else if (stop) {
+				if(stop + 1) {  // WHEN TRUE, STOPS LOOP -- PUT CORRECT ANSWER INTO ONE OF THE CLICKABLE LINKS
+//					console.log(' Second inner if true -- top');
 //					$('.active-question ul').append(prepLinkTags);
 					$('.active-question span').eq(linkIndexForCorrectAnswer).text(ctl[0]); // REPLACING TEXT WITH CORRECT ANSWER
 					$('.active-question li').eq(linkIndexForCorrectAnswer).css({'background-image': 'url('+itl[0]+')', 'background-size': 'cover'});
 					$('.active-question span').eq(linkIndexForCorrectAnswer).css({'background': 'linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5))'}); // APPLYING CSS STYLES
-					console.log(' Third inner if true -- bottom');
+				}
+
+			} // END 2ND / CATCH LOOP
+		} // END OF 2ND "IF" STATEMENT
+		
+		if (startIndex === 0) {  // FOR ZERO INDEX SITUATION
+			var stop = startIndex + 4;	
+			for(var start = startIndex; start <= stop ; start++) {				
+				if(start < stop) {					
+					$('.active-question ul').append(prepLinkTags);
+					$('.active-question span').last().text(ctl[start + 1]);
+					$('.active-question li').last().css({'background-image': 'url('+itl[start + 1]+')', 'background-size': 'cover'});
+					$('.active-question span').last().css({'background': 'linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5))'});
+				} else if (stop) {
+					$('.active-question span').eq(linkIndexForCorrectAnswer).text(ctl[0]); 
+					$('.active-question li').eq(linkIndexForCorrectAnswer).css({'background-image': 'url('+itl[0]+')', 'background-size': 'cover'});
+					$('.active-question span').eq(linkIndexForCorrectAnswer).css({'background': 'linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5))'});
 				} 
 			} // END 3RD / CATCH LOOP
 		} // END OF 3RD "IF" STATEMENT
