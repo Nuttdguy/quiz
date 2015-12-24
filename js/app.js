@@ -26,19 +26,19 @@ $(document).ready(function() {
 		}
 			
 		var insectChoices = {
-			antArray: ['Fire Ant', 'Meat Eating Ant', 'Argentine Ant', 'Bull Ant', 'Saifu Ant', 'Bullhorn Acacia Ant', 'Green Tree Ant', 'Army Ant'],
-			spiderArray: ['Camel Spider', 'Fringed Ornamental Tarantula', 'Mouse Spider', 'Black Widow', 'Brown Recluse', 'Sydney Funnel Web', 'Brazilian Wandering Spider'],
-			snakeArray: ['Rattle Snake', 'Death Adder', 'Viper', 'Black Mamba', 'Blue Krait', 'Inland Taipan' ],
+			antArray: [ 'Bull Ant' ,'Fire Ant', 'Meat Eating Ant', 'Argentine Ant', 'Saifu Ant', 'Bullhorn Acacia Ant', 'Green Tree Ant', 'Army Ant'],
+			spiderArray: ['Brazilian Wandering Spider', 'Camel Spider', 'Fringed Ornamental Tarantula', 'Mouse Spider', 'Black Widow', 'Brown Recluse', 'Sydney Funnel Web' ],
+			snakeArray: ['Inland Taipan', 'Rattle Snake', 'Death Adder', 'Viper', 'Black Mamba', 'Blue Krait' ],
 			posionousArray: ['Box Jellyfish', 'King Cobra', 'Blue Ringed Octopus', 'Death Stalker Scorpion', 'Brazillian Wandering Spider', 'Puffer Fish'],
-			largestInsectArray: ['Titan Beetle', 'Elephant Beetle', 'Giant Long-Legged Katydids', 'Goliath Beetle', 'Giant Camel Spiders', 'Giant Weta'],
+			largestInsectArray: [ 'Giant Weta', 'Titan Beetle', 'Elephant Beetle', 'Giant Long-Legged Katydids', 'Goliath Beetle', 'Giant Camel Spiders'],
 		}
 		
 		var insectImages = {
-			antImages: ['http://themysteriousworld.com/wp-content/uploads/2014/03/fireant-1024x708.jpg', 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Meat_eater_ant_feeding_on_honey02.jpg/250px-Meat_eater_ant_feeding_on_honey02.jpg', 'http://cisr.ucr.edu/images/argentine_ant_01_small.jpg', 'http://themysteriousworld.com/wp-content/uploads/2014/03/bullet-ant.jpg', 'http://www.alexanderwild.com/Ants/Taxonomic-List-of-Ant-Genera/Dorylus/i-VXDZh2X/1/XL/siafu7-XL.jpg', 'http://science.kennesaw.edu/~jdirnber/Bio2108/Lecture/LecEcology/acacia-ants.jpg', 'https://upload.wikimedia.org/wikipedia/commons/1/12/Green_Tree_Ant_two_times_life_size.JPG', 'http://blogs.scientificamerican.com/compound-eye/files/2012/06/army_ant_nomamyrmex.jpg' ],
-			spiderImages: ['http://www.planetdeadly.com/wp-content/uploads/camel-spider-720x463.jpg', 'http://www.planetdeadly.com/wp-content/uploads/ornamental-tarantula-720x444.jpg', 'http://www.planetdeadly.com/wp-content/uploads/mouse-spider-720x485.jpg', 'http://www.planetdeadly.com/wp-content/uploads/redback-spider-720x492.jpg', 'http://www.planetdeadly.com/wp-content/uploads/brown-recluse-720x495.jpg', 'http://www.planetdeadly.com/wp-content/uploads/sydney-funnel-web-720x531.jpg', 'http://www.planetdeadly.com/wp-content/uploads/brazilian-wandering-spider-720x480.jpg'],
-			snakeImages: ['http://listverse.wpengine.netdna-cdn.com/wp-content/uploads/2011/03/rattlesnake.jpg', 'http://listverse.wpengine.netdna-cdn.com/wp-content/uploads/2011/03/r260601_1083484.jpg', 'http://listverse.wpengine.netdna-cdn.com/wp-content/uploads/2011/03/saw-scaled-viper.jpg', 'http://listverse.wpengine.netdna-cdn.com/wp-content/uploads/2011/03/blackmamba.jpg', 'http://listverse.wpengine.netdna-cdn.com/wp-content/uploads/2011/03/948918878_0b4799afdb_o.jpg', 'http://listverse.wpengine.netdna-cdn.com/wp-content/uploads/2011/03/poisonous-snake.jpg', 'http://listverse.wpengine.netdna-cdn.com/wp-content/uploads/2011/03/poisonous-snake.jpg' ],
+			antImages: ['http://themysteriousworld.com/wp-content/uploads/2014/03/bullet-ant.jpg', 'http://themysteriousworld.com/wp-content/uploads/2014/03/fireant-1024x708.jpg', 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Meat_eater_ant_feeding_on_honey02.jpg/250px-Meat_eater_ant_feeding_on_honey02.jpg', 'http://cisr.ucr.edu/images/argentine_ant_01_small.jpg', 'http://www.alexanderwild.com/Ants/Taxonomic-List-of-Ant-Genera/Dorylus/i-VXDZh2X/1/XL/siafu7-XL.jpg', 'http://science.kennesaw.edu/~jdirnber/Bio2108/Lecture/LecEcology/acacia-ants.jpg', 'https://upload.wikimedia.org/wikipedia/commons/1/12/Green_Tree_Ant_two_times_life_size.JPG', 'http://blogs.scientificamerican.com/compound-eye/files/2012/06/army_ant_nomamyrmex.jpg' ],
+			spiderImages: ['http://www.planetdeadly.com/wp-content/uploads/brazilian-wandering-spider-720x480.jpg', 'http://www.planetdeadly.com/wp-content/uploads/camel-spider-720x463.jpg', 'http://www.planetdeadly.com/wp-content/uploads/ornamental-tarantula-720x444.jpg', 'http://www.planetdeadly.com/wp-content/uploads/mouse-spider-720x485.jpg', 'http://www.planetdeadly.com/wp-content/uploads/redback-spider-720x492.jpg','http://www.planetdeadly.com/wp-content/uploads/brown-recluse-720x495.jpg', 'http://www.planetdeadly.com/wp-content/uploads/sydney-funnel-web-720x531.jpg'],
+			snakeImages: [ 'http://listverse.wpengine.netdna-cdn.com/wp-content/uploads/2011/03/poisonous-snake.jpg', 'http://listverse.wpengine.netdna-cdn.com/wp-content/uploads/2011/03/rattlesnake.jpg', 'http://listverse.wpengine.netdna-cdn.com/wp-content/uploads/2011/03/r260601_1083484.jpg', 'http://listverse.wpengine.netdna-cdn.com/wp-content/uploads/2011/03/saw-scaled-viper.jpg', 'http://listverse.wpengine.netdna-cdn.com/wp-content/uploads/2011/03/blackmamba.jpg', 'http://listverse.wpengine.netdna-cdn.com/wp-content/uploads/2011/03/948918878_0b4799afdb_o.jpg', 'http://listverse.wpengine.netdna-cdn.com/wp-content/uploads/2011/03/poisonous-snake.jpg' ],
 			poisonousImages: ['http://www.conservationinstitute.org/wp-content/uploads/2013/09/Box-Jellyfish-David-Lambert-Flickr.jpg', 'http://www.conservationinstitute.org/wp-content/uploads/2013/09/King-Cobra-Michael-Allen-Smith-Flickr.jpg', 'http://www.conservationinstitute.org/wp-content/uploads/2013/09/Blue-Ringed-Octopus-Saspotato-Flickr.jpg', 'http://www.conservationinstitute.org/wp-content/uploads/2013/09/Death-Stalker-Scorpion-Anthony-Flickr.jpg', 'http://www.conservationinstitute.org/wp-content/uploads/2013/09/Brazilizn-Wandering-Spider-Andreas-Kay-Flickr.jpg', 'http://www.conservationinstitute.org/wp-content/uploads/2013/09/Puffer-Fish-LisaSabin-Wilson-Flickr.jpg'],
-			largestInsectImages: ['http://s-ak.buzzfed.com/static/enhanced/terminal01/2011/3/22/12/enhanced-buzz-3415-1300812798-4.jpg', 'http://s3-ak.buzzfeed.com/static/enhanced/terminal01/2011/3/22/12/enhanced-buzz-3402-1300812938-8.jpg', 'http://s3-ak.buzzfeed.com/static/enhanced/terminal01/2011/3/22/12/enhanced-buzz-3420-1300812883-5.jpg', 'http://s3-ak.buzzfeed.com/static/enhanced/terminal01/2011/3/22/12/enhanced-buzz-3418-1300813082-11.jpg', 'http://s3-ak.buzzfeed.com/static/enhanced/terminal01/2011/3/22/13/enhanced-buzz-3418-1300813341-12.jpg', 'http://i.dailymail.co.uk/i/pix/2011/12/01/article-2068547-0F02AA4A00000578-492_634x370.jpg']	
+			largestInsectImages: [ 'http://i.dailymail.co.uk/i/pix/2011/12/01/article-2068547-0F02AA4A00000578-492_634x370.jpg', 'http://s-ak.buzzfed.com/static/enhanced/terminal01/2011/3/22/12/enhanced-buzz-3415-1300812798-4.jpg', 'http://s3-ak.buzzfeed.com/static/enhanced/terminal01/2011/3/22/12/enhanced-buzz-3402-1300812938-8.jpg', 'http://s3-ak.buzzfeed.com/static/enhanced/terminal01/2011/3/22/12/enhanced-buzz-3420-1300812883-5.jpg', 'http://s3-ak.buzzfeed.com/static/enhanced/terminal01/2011/3/22/12/enhanced-buzz-3418-1300813082-11.jpg', 'http://s3-ak.buzzfeed.com/static/enhanced/terminal01/2011/3/22/13/enhanced-buzz-3418-1300813341-12.jpg']	
 		}
 
 // -------- END QUESTIONS AND ANSWERS -------- //
@@ -115,7 +115,8 @@ $(document).ready(function() {
 		var questionNumber = getNumber(0, gameQuestionsLength); // instantiating the questionNumber function to get random question number
 		
 //		selectGameQuestion(gameQuestionsLength, gameQuestions); // 
-		console.log(questionNumber + ' --- getting the question number') // this will determine category of question and dictate question and answer to load.
+		console.log(prepAntChoicesLength + ' --- getting the question number') // this will determine category of question and dictate question and answer to load.
+		console.log(gameQuestions + ' --- getting the question number')
 		if(questionNumber === 0) {
 			for(var i = 0; i < prepAntChoicesLength; i++) {
 				choicesToLoad.push(prepAntChoices[i]);
@@ -123,10 +124,9 @@ $(document).ready(function() {
 				gameQuestions.push(prepInsectQuestions[i]);
 			}
 			
-			$('.question-container h2').text(gameQuestions[questionNumber]);
-//			imagesToLoadLength = imagesToLoad.length;
-//			choicesToLoadLength = choicesToLoad.length;
-//			gameQuestionsLength = gameQuestions.length;
+			console.log(gameQuestions);
+			
+			$('.question-container h2').text(gameQuestions[questionNumber]); // display current question
 			
 			loadQuestion(imageOptions, choicesToLoad, choicesToLoadLength, imagesToLoad, imagesToLoadLength);
 		}
@@ -139,57 +139,68 @@ $(document).ready(function() {
 //		console.log(io + ' -- io is working')
 
 		var prepLinkTags = '<li><span> </span></li>';
-		var startIndex = Math.floor((Math.random() * (8 - 0)) + 0);
+		var startIndex = getNumber(0, 8);
+		var linkIndexForCorrectAnswer = getNumber(0, 4);
 		console.log(startIndex);
 
-		if(startIndex > io) { // 5 > 4 
+		if(startIndex >= io) { // 5 > 4 
 			
-//			var startIndexLoop = (startIndex - io); // 5 - 4 = 1
 			var numLinks = (startIndex + io); // 1 + 4 = 5
 			var start = startIndex; // 7
 			var stop1 = start - 3; // 7 - 4 = 3 
 			
 														// 7 < 11 
-			for(var i = start; i < numLinks; i--) {
-				var $addUl = $('.active-question ul').append(prepLinkTags).appendTo('.active-question ul');
-				var $addSpanText = $('.active-question span').last().text(ctl[i]);
-				var $addLiImageStyle = $('.active-question li').last().css({'background-image': 'url('+itl[i]+')', 'background-size': 'cover'});
-				var $addSpanStyle = $('.active-question span').last().css({'background': 'linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5))'});
+			for(var i = start; i <= numLinks; i--) {
+				var $addUl = $('.active-question ul').append(prepLinkTags).appendTo('.active-question ul'); // SETTING VARIABLES; HAVE TO BE PRIVATE TO THE LOOP. OTHERWISE THE 'ITERATOR' DOESN'T REGISTER DYNAMICALLY.
+				var $addSpanText = $('.active-question span').last().text(ctl[i]); // ADDING TEXT TO THE LAST LINK CREATED.
+				var $addLiImageStyle = $('.active-question li').last().css({'background-image': 'url('+itl[i]+')', 'background-size': 'cover'}); // APPLYING CSS TO NEW LINNK ELEMENT
+				var $addSpanStyle = $('.active-question span').last().css({'background': 'linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5))'}); // APPLYING CSS TO NEW SPAN ELEMENT
 				
 				if (i === stop1 ) {
-					return;
+					
+					if (linkIndexForCorrectAnswer < 5) { // WHEN I CREATE THE VARIABLES BELOW, IS IT AUTOMATICALLY REPLACING ONE OF THE ACTIVE LINK TAGS?
+						var $addCorrectImage = $('.active-question span').eq(linkIndexForCorrectAnswer).text(ctl[0]); // REPLACING TEXT WITH CORRECT ANSWER
+						var $addLiImageStyle = $('.active-question li').eq(linkIndexForCorrectAnswer).css({'background-image': 'url('+itl[0]+')', 'background-size': 'cover'}); // APPLYING CSS STYLES
+						return;
+					}
 				} else {
 					$addUl;
 					$addSpanText;
 					$addLiImageStyle;
 					$addSpanStyle; 
 				}
-			} // END FIRST FOR LOOP
-		}
+			} // END 1ST FOR LOOP
+		} // END OF 1ST "IF" STATEMENT
 		
-		if (startIndex < io) {
-			var start = startIndex; // 0
-			var stop2 = start + 4; // 0 + 3 = 3
-			console.log(i = " in second loop")
-												//	0 < 3 
-			for(var i = start; i < stop2 ; i++) {
-				var $addUl = $('.active-question ul').append(prepLinkTags).appendTo('.active-question ul');
-				var $addSpanText = $('.active-question span').last().text(ctl[i]);
-				var $addLiImageStyle = $('.active-question li').last().css({'background-image': 'url('+itl[i]+')', 'background-size': 'cover'});
-				var $addSpanStyle = $('.active-question span').last().css({'background': 'linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5))'});
+		if (startIndex <= io) {
+			var start = startIndex; // 0  // SETTING START INDEX FOR LOOP
+			var stop2 = start + 3; // 0 + 3 = 3  // SETTING STOP INDEX FOR LOOP
+			
+												//	0 < 3 // LOOP IS TO INTERATE FOUR TIMES 0, 1, 2, 3
+			for(var i = start; i <= stop2 ; i++) {
+				var $addUl = $('.active-question ul').append(prepLinkTags).appendTo('.active-question ul'); // SETTING VARIABLES; HAVE TO BE PRIVATE TO THE LOOP. OTHERWISE THE 'ITERATOR' DOESN'T REGISTER DYNAMICALLY.
+				var $addSpanText = $('.active-question span').last().text(ctl[i]); // ADDING TEXT TO THE LAST LINK CREATED.
+				var $addLiImageStyle = $('.active-question li').last().css({'background-image': 'url('+itl[i]+')', 'background-size': 'cover'}); // APPLYING CSS TO NEW LINNK ELEMENT
+				var $addSpanStyle = $('.active-question span').last().css({'background': 'linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5))'}); // APPLYING CSS TO NEW SPAN ELEMENT
 
-				if(i === stop2) {
-					return;
+				if(i === stop2) {  // WHEN TRUE, STOPS LOOP 
+					if(start === 0) { // IF TRUE, STOPS LOOP AND PREVENTS CORRECT IMAGE FROM SHOWING DUPLICATES
+						return;
+					} else {  // I don't understand how the below adds correct answer without first removing the link
+						var $addCorrectImage = $('.active-question span').eq(linkIndexForCorrectAnswer).text(ctl[0]); // REPLACING TEXT WITH CORRECT ANSWER
+						var $addLiImageStyle = $('.active-question li').eq(linkIndexForCorrectAnswer).css({'background-image': 'url('+itl[0]+')', 'background-size': 'cover'}); // APPLYING CSS STYLES
+						return;
+					}
 				} else {
-					$addUl;
+					$addUl; 
 					$addSpanText;
 					$addLiImageStyle;
 					$addSpanStyle;
 				}
-			} // END SECOND / CATCH LOOP
-		}
-			
-	}	
+			} // END 2ND / CATCH LOOP
+		} // END OF 2ND "IF" STATEMENT
+		
+	}	// END OF "LOAD QUESTION" FUNCTION
 
 
 	
