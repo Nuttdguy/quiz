@@ -37,10 +37,12 @@ $(document).ready(function() {
 			antImages: ['http://themysteriousworld.com/wp-content/uploads/2014/03/bullet-ant.jpg', 'http://themysteriousworld.com/wp-content/uploads/2014/03/fireant-1024x708.jpg', 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Meat_eater_ant_feeding_on_honey02.jpg/250px-Meat_eater_ant_feeding_on_honey02.jpg', 'http://cisr.ucr.edu/images/argentine_ant_01_small.jpg', 'http://www.alexanderwild.com/Ants/Taxonomic-List-of-Ant-Genera/Dorylus/i-VXDZh2X/1/XL/siafu7-XL.jpg', 'http://science.kennesaw.edu/~jdirnber/Bio2108/Lecture/LecEcology/acacia-ants.jpg', 'https://upload.wikimedia.org/wikipedia/commons/1/12/Green_Tree_Ant_two_times_life_size.JPG', 'http://blogs.scientificamerican.com/compound-eye/files/2012/06/army_ant_nomamyrmex.jpg' ],
 			spiderImages: ['http://www.planetdeadly.com/wp-content/uploads/brazilian-wandering-spider-720x480.jpg', 'http://www.planetdeadly.com/wp-content/uploads/camel-spider-720x463.jpg', 'http://www.planetdeadly.com/wp-content/uploads/ornamental-tarantula-720x444.jpg', 'http://www.planetdeadly.com/wp-content/uploads/mouse-spider-720x485.jpg', 'http://www.planetdeadly.com/wp-content/uploads/redback-spider-720x492.jpg','http://www.planetdeadly.com/wp-content/uploads/brown-recluse-720x495.jpg', 'http://www.planetdeadly.com/wp-content/uploads/sydney-funnel-web-720x531.jpg'],
 			snakeImages: [ 'http://listverse.wpengine.netdna-cdn.com/wp-content/uploads/2011/03/poisonous-snake.jpg', 'http://listverse.wpengine.netdna-cdn.com/wp-content/uploads/2011/03/rattlesnake.jpg', 'http://listverse.wpengine.netdna-cdn.com/wp-content/uploads/2011/03/r260601_1083484.jpg', 'http://listverse.wpengine.netdna-cdn.com/wp-content/uploads/2011/03/saw-scaled-viper.jpg', 'http://listverse.wpengine.netdna-cdn.com/wp-content/uploads/2011/03/blackmamba.jpg', 'http://listverse.wpengine.netdna-cdn.com/wp-content/uploads/2011/03/948918878_0b4799afdb_o.jpg', 'http://listverse.wpengine.netdna-cdn.com/wp-content/uploads/2011/03/poisonous-snake.jpg' ],
-			poisonousImages: ['http://www.conservationinstitute.org/wp-content/uploads/2013/09/Box-Jellyfish-David-Lambert-Flickr.jpg', 'http://www.conservationinstitute.org/wp-content/uploads/2013/09/King-Cobra-Michael-Allen-Smith-Flickr.jpg', 'http://www.conservationinstitute.org/wp-content/uploads/2013/09/Blue-Ringed-Octopus-Saspotato-Flickr.jpg', 'http://www.conservationinstitute.org/wp-content/uploads/2013/09/Death-Stalker-Scorpion-Anthony-Flickr.jpg', 'http://www.conservationinstitute.org/wp-content/uploads/2013/09/Brazilizn-Wandering-Spider-Andreas-Kay-Flickr.jpg', 'http://www.conservationinstitute.org/wp-content/uploads/2013/09/Puffer-Fish-LisaSabin-Wilson-Flickr.jpg'],
+			poisonousImages: ['http://www.conservationinstitute.org/wp-content/uploads/2013/09/Box-Jellyfish-David-Lambert-Flickr.jpg', 'http://cdn4.sci-news.com/images/2013/12/image_1595_1-King-cobra.jpg', 'http://www.slate.com/content/dam/slate/articles/health_and_science/wild_things/2015/06/150623_WILD_Octopus.jpg.CROP.promo-mediumlarge.jpg', 'http://www.factzoo.com/sites/all/img/invertebrates/arachnid/yellow-isreali-scorpion.jpg', 'http://www.conservationinstitute.org/wp-content/uploads/2013/09/Brazilizn-Wandering-Spider-Andreas-Kay-Flickr.jpg', 'http://www.conservationinstitute.org/wp-content/uploads/2013/09/Puffer-Fish-LisaSabin-Wilson-Flickr.jpg', 'http://www.slate.com/content/dam/slate/articles/health_and_science/wild_things/2015/06/150623_WILD_Octopus.jpg.CROP.promo-mediumlarge.jpg'],
 			largestInsectImages: [ 'http://i.dailymail.co.uk/i/pix/2011/12/01/article-2068547-0F02AA4A00000578-492_634x370.jpg', 'http://s-ak.buzzfed.com/static/enhanced/terminal01/2011/3/22/12/enhanced-buzz-3415-1300812798-4.jpg', 'http://s3-ak.buzzfeed.com/static/enhanced/terminal01/2011/3/22/12/enhanced-buzz-3402-1300812938-8.jpg', 'http://s3-ak.buzzfeed.com/static/enhanced/terminal01/2011/3/22/12/enhanced-buzz-3420-1300812883-5.jpg', 'http://s3-ak.buzzfeed.com/static/enhanced/terminal01/2011/3/22/12/enhanced-buzz-3418-1300813082-11.jpg', 'http://s3-ak.buzzfeed.com/static/enhanced/terminal01/2011/3/22/13/enhanced-buzz-3418-1300813341-12.jpg']	
 		}
 
+		
+//					poisonousImages: ['http://www.conservationinstitute.org/wp-content/uploads/2013/09/Box-Jellyfish-David-Lambert-Flickr.jpg', 'http://cdn4.sci-news.com/images/2013/12/image_1595_1-King-cobra.jpg', 'http://www.slate.com/content/dam/slate/articles/health_and_science/wild_things/2015/06/150623_WILD_Octopus.jpg.CROP.promo-mediumlarge.jpg', 'http://www.factzoo.com/sites/all/img/invertebrates/arachnid/yellow-isreali-scorpion.jpg', 'http://www.conservationinstitute.org/wp-content/uploads/2013/09/Brazilizn-Wandering-Spider-Andreas-Kay-Flickr.jpg', 'http://www.conservationinstitute.org/wp-content/uploads/2013/09/Puffer-Fish-LisaSabin-Wilson-Flickr.jpg', 'http://www.slate.com/content/dam/slate/articles/health_and_science/wild_things/2015/06/150623_WILD_Octopus.jpg.CROP.promo-mediumlarge.jpg']
 // -------- END QUESTIONS AND ANSWERS -------- //
 	
 	var score = 0;	
@@ -56,7 +58,7 @@ $(document).ready(function() {
 		})
 		
 		$('.question-container .submit').on('click', function() {
-			getInsectQuestions();
+//			getInsectQuestions();
 			getQuestion();
 		})
 		
@@ -68,15 +70,15 @@ $(document).ready(function() {
 	}
 	
 	
-	function getInsectQuestions() {	
-		var prepInsectQuestionLength = insectQuestions.length;
-		
-		for (var i = 0; i < prepInsectQuestionLength; ) {
-				duplicateInsectQuestions = insectQuestions;
-				i++;
-			}
-		return duplicateInsectQuestions;
-	}
+//	function getInsectQuestions() {	
+//		var prepInsectQuestionLength = insectQuestions.length;
+//		
+//		for (var i = 0; i < prepInsectQuestionLength; ) {
+//				duplicateInsectQuestions = insectQuestions;
+//				i++;
+//			}
+//		return duplicateInsectQuestions;
+//	}
 	
 
 	function getQuestion() { 
@@ -102,65 +104,98 @@ $(document).ready(function() {
 		var prepLargestChoicesLength = insectChoices.largestInsectArray.length;
 
 //		var array = duplicateInsectQuestions; // Don't think array length of question is needed. Just need the index number
-		var choicesToLoad = [];
-		var choicesToLoadLength = choicesToLoad.length;
+
+
+		var gameQuestionsLength = prepInsectQuestions.length;
+		var useThisQuestionNumber = selectQuestion(gameQuestionsLength);  // instantiating the questionNumber function to get random question number
+	
+		console.log(useThisQuestionNumber + ' -- use this question number');  // NEED A FUNCTION -- WILL NEED TO REMOVE THE INDEX NUMBER OF THE QUESTION ONLY -- ONCE IT HAS BEEN USED.		
 		
-		var imageOptions = 4;
-		var imagesToLoad = [];
-		var imagesToLoadLength = imagesToLoad.length;
-		
-		var gameQuestions = [];
-		var gameQuestionsLength = gameQuestions.length;
-		
-		var questionNumber = getNumber(0, gameQuestionsLength); // instantiating the questionNumber function to get random question number
-		
-//		selectGameQuestion(gameQuestionsLength, gameQuestions); // 
-		console.log(prepAntChoicesLength + ' --- getting the question number') // this will determine category of question and dictate question and answer to load.
-		console.log(gameQuestions + ' --- getting the question number')
-		if(questionNumber === 0) {
-			for(var i = 0; i < prepAntChoicesLength; i++) {
-				choicesToLoad.push(prepAntChoices[i]);
-				imagesToLoad.push(prepAntImages[i]);
-				gameQuestions.push(prepInsectQuestions[i]);
+		if(useThisQuestionNumber === 0 || useThisQuestionNumber === 1 || useThisQuestionNumber === 2 || useThisQuestionNumber === 3 || useThisQuestionNumber === 4) {
+			var imageOptions = 4;
+			var gameQuestions = [];
+			var imagesToLoad = [];
+			var choicesToLoad = [];
+			var choicesToLoadLength = choicesToLoad.length;
+			var imagesToLoadLength = imagesToLoad.length;
+			if(useThisQuestionNumber === 0) { 
+				for(var i = 0; i < prepAntChoicesLength; i++) {
+					choicesToLoad.push(prepAntChoices[i]);
+					imagesToLoad.push(prepAntImages[i]);
+					gameQuestions.push(prepInsectQuestions[i]);
+				}
 			}
+			if(useThisQuestionNumber === 1) { 
+				for(var i = 0; i < prepSpiderChoicesLength; i++) {
+					choicesToLoad.push(prepSpiderChoices[i]);
+					imagesToLoad.push(prepSpiderImages[i]);
+					gameQuestions.push(prepInsectQuestions[i]);
+				}
+			}
+			if(useThisQuestionNumber === 2) { 
+				for(var i = 0; i < prepSnakeChoicesLength; i++) {
+					choicesToLoad.push(prepSnakeChoices[i]);
+					imagesToLoad.push(prepSnakeImages[i]);
+					gameQuestions.push(prepInsectQuestions[i]);
+				}
+			}
+			if(useThisQuestionNumber === 3) { 
+				for(var i = 0; i < prepPoisonousChoicesLength; i++) {
+					choicesToLoad.push(prepPoisonousChoices[i]);
+					imagesToLoad.push(prepPoisonousImages[i]);
+					gameQuestions.push(prepInsectQuestions[i]);
+				}
+			}
+			if(useThisQuestionNumber === 4) { 
+				for(var i = 0; i < prepLargestChoicesLength; i++) {
+					choicesToLoad.push(prepLargestInsectChoices[i]);
+					imagesToLoad.push(prepLargestInsectImages[i]);
+					gameQuestions.push(prepInsectQuestions[i]);
+				}
+			}
+			console.log(gameQuestions + ' -- game questions')
 			
-			console.log(gameQuestions);
-			
-			$('.question-container h2').text(gameQuestions[questionNumber]); // display current question
-			
-			loadQuestion(imageOptions, choicesToLoad, choicesToLoadLength, imagesToLoad, imagesToLoadLength);
+			$('.question-container h2').text(gameQuestions[useThisQuestionNumber]); // display current question	
+			loadQuestion(imageOptions, choicesToLoad, choicesToLoadLength, imagesToLoad, imagesToLoadLength, useThisQuestionNumber);
 		}
+		
+	}
+	
+	function selectQuestion(gql) {
+		var randomQuestionNumber = getNumber(0, gql);
+//		console.log(randomQuestionNumber + ' --- in select question');
+		
+		return randomQuestionNumber;	
 	}
 
 
-	function loadQuestion(io, ctl, ctll, itl, itll) {  //	function loadQuestion(choicesToLoad, imagesToLoad, imageOptions, questionNumber)
-//		console.log(ctll + ' -- ctll working now');
-//		console.log(itll + ' -- itll is working');
-//		console.log(io + ' -- io is working')
-
+	function loadQuestion(io, ctl, ctll, itl, itll, utqn) {  //	function loadQuestion(choicesToLoad, imagesToLoad, imageOptions, questionNumber)
+		
 		var prepLinkTags = '<li><span> </span></li>';
-		var startIndex = getNumber(0, 8);
+//		var startIndex = utqn; Deactivate to test 0 index
+		var startIndex = 0;
 		var linkIndexForCorrectAnswer = getNumber(0, 4);
-		console.log(startIndex);
 
-		if(startIndex >= io) { // 5 > 4 
+		if(startIndex >= io) { // 1 > 4 -- false 
+			
+			console.log(startIndex + '---- First "IF" start index at top !!!!!!!!');
 			
 			var numLinks = (startIndex + io); // 1 + 4 = 5
 			var start = startIndex; // 7
-			var stop1 = start - 3; // 7 - 4 = 3 
-			
+			var stop = start - 3; // 7 - 4 = 3 
 														// 7 < 11 
-			for(var i = start; i <= numLinks; i--) {
-				var $addUl = $('.active-question ul').append(prepLinkTags).appendTo('.active-question ul'); // SETTING VARIABLES; HAVE TO BE PRIVATE TO THE LOOP. OTHERWISE THE 'ITERATOR' DOESN'T REGISTER DYNAMICALLY.
+			for(var i = start; i < numLinks; i--) {
+				var $addUl = $('.active-question ul').append(prepLinkTags); //.appendTo('.active-question ul'); // SETTING VARIABLES; HAVE TO BE PRIVATE TO THE LOOP. OTHERWISE THE 'ITERATOR' DOESN'T REGISTER DYNAMICALLY.
 				var $addSpanText = $('.active-question span').last().text(ctl[i]); // ADDING TEXT TO THE LAST LINK CREATED.
 				var $addLiImageStyle = $('.active-question li').last().css({'background-image': 'url('+itl[i]+')', 'background-size': 'cover'}); // APPLYING CSS TO NEW LINNK ELEMENT
 				var $addSpanStyle = $('.active-question span').last().css({'background': 'linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5))'}); // APPLYING CSS TO NEW SPAN ELEMENT
-				
-				if (i === stop1 ) {
+
+				if (i === stop ) {
 					
 					if (linkIndexForCorrectAnswer < 5) { // WHEN I CREATE THE VARIABLES BELOW, IS IT AUTOMATICALLY REPLACING ONE OF THE ACTIVE LINK TAGS?
 						var $addCorrectImage = $('.active-question span').eq(linkIndexForCorrectAnswer).text(ctl[0]); // REPLACING TEXT WITH CORRECT ANSWER
 						var $addLiImageStyle = $('.active-question li').eq(linkIndexForCorrectAnswer).css({'background-image': 'url('+itl[0]+')', 'background-size': 'cover'}); // APPLYING CSS STYLES
+
 						return;
 					}
 				} else {
@@ -170,45 +205,90 @@ $(document).ready(function() {
 					$addSpanStyle; 
 				}
 			} // END 1ST FOR LOOP
+			return;
 		} // END OF 1ST "IF" STATEMENT
 		
-		if (startIndex <= io) {
-			var start = startIndex; // 0  // SETTING START INDEX FOR LOOP
-			var stop2 = start + 3; // 0 + 3 = 3  // SETTING STOP INDEX FOR LOOP
+		if (startIndex < io && startIndex >= 1) { // 1 < 4 -- true
+			var stop = startIndex + 3; // 1 + 3 = 4  // SETTING STOP INDEX FOR LOOP
 			
-												//	0 < 3 // LOOP IS TO INTERATE FOUR TIMES 0, 1, 2, 3
-			for(var i = start; i <= stop2 ; i++) {
-				var $addUl = $('.active-question ul').append(prepLinkTags).appendTo('.active-question ul'); // SETTING VARIABLES; HAVE TO BE PRIVATE TO THE LOOP. OTHERWISE THE 'ITERATOR' DOESN'T REGISTER DYNAMICALLY.
-				var $addSpanText = $('.active-question span').last().text(ctl[i]); // ADDING TEXT TO THE LAST LINK CREATED.
-				var $addLiImageStyle = $('.active-question li').last().css({'background-image': 'url('+itl[i]+')', 'background-size': 'cover'}); // APPLYING CSS TO NEW LINNK ELEMENT
-				var $addSpanStyle = $('.active-question span').last().css({'background': 'linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5))'}); // APPLYING CSS TO NEW SPAN ELEMENT
-
-				if(i === stop2) {  // WHEN TRUE, STOPS LOOP 
-					if(start === 0) { // IF TRUE, STOPS LOOP AND PREVENTS CORRECT IMAGE FROM SHOWING DUPLICATES
-						return;
-					} else {  // I don't understand how the below adds correct answer without first removing the link
-						var $addCorrectImage = $('.active-question span').eq(linkIndexForCorrectAnswer).text(ctl[0]); // REPLACING TEXT WITH CORRECT ANSWER
-						var $addLiImageStyle = $('.active-question li').eq(linkIndexForCorrectAnswer).css({'background-image': 'url('+itl[0]+')', 'background-size': 'cover'}); // APPLYING CSS STYLES
-						return;
-					}
-				} else {
-					$addUl; 
-					$addSpanText;
-					$addLiImageStyle;
-					$addSpanStyle;
+//			console.log(startIndex + ' ----- Second "IF" Start INDEX # at bottom')
+//			console.log(start + ' ----- Second "IF" **** START ***  # at bottom')
+											//	1 < 6 // LOOP IS TO INTERATE FOUR TIMES 1, 2, 3
+			for(var start = startIndex; start <= stop ; start++) {
+//				console.log (start + ' ---- Stop Starting Index Value')
+					// 0        (0 + 3) + 1 = 4;
+				if(start === (stop + 1)) {  // WHEN TRUE, STOPS LOOP -- PUT CORRECT ANSWER INTO ONE OF THE CLICKABLE LINKS
+					console.log(' Second inner if true -- top');
+					$('.active-question ul').append(prepLinkTags);
+					$('.active-question span').eq(linkIndexForCorrectAnswer).text(ctl[0]); // REPLACING TEXT WITH CORRECT ANSWER
+					$('.active-question li').eq(linkIndexForCorrectAnswer).css({'background-image': 'url('+itl[0]+')', 'background-size': 'cover'});
+					$('.active-question span').eq(linkIndexForCorrectAnswer).css({'background': 'linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5))'}); // APPLYING CSS STYLES
+					console.log(' Second inner if true -- bottom');
+					return;
 				}
+				
+				$('.active-question ul').append(prepLinkTags); //.appendTo('.active-question ul'); // SETTING VARIABLES; HAVE TO BE PRIVATE TO THE LOOP. OTHERWISE THE 'ITERATOR' DOESN'T REGISTER DYNAMICALLY.				
+				$('.active-question span').last().text(ctl[start-1]); // ADDING TEXT TO THE LAST LINK CREATED.
+				$('.active-question li').last().css({'background-image': 'url('+itl[start-1]+')', 'background-size': 'cover'}); // APPLYING CSS TO NEW LINNK ELEMENT
+				$('.active-question span').last().css({'background': 'linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5))'}); // APPLYING CSS TO NEW SPAN ELEMENT
 			} // END 2ND / CATCH LOOP
 		} // END OF 2ND "IF" STATEMENT
 		
+		if (startIndex === 0) { // 1 < 4 -- true
+			var stop = startIndex + 4; // 1 + 3 = 4  // SETTING STOP INDEX FOR LOOP
+			console.log(startIndex + ' ----- THIRD "IF" Start INDEX # at bottom')
+	
+			for(var start = startIndex; start <= stop ; start++) {
+				console.log (start + ' ---- THIRD START Starting Index Value')
+				
+				if(start < stop) {
+					console.log(' Third inner if true -- top');
+					
+					$('.active-question ul').append(prepLinkTags);
+					$('.active-question span').last().text(ctl[start + 1]); // ADDING TEXT TO THE LAST LINK CREATED.
+					$('.active-question li').last().css({'background-image': 'url('+itl[start + 1]+')', 'background-size': 'cover'}); // APPLYING CSS TO NEW LINNK ELEMENT
+					$('.active-question span').last().css({'background': 'linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5))'}); // APPLYING CSS TO NEW SPAN ELEMENT
+				} else if (stop) {
+//					$('.active-question ul').append(prepLinkTags);
+					$('.active-question span').eq(linkIndexForCorrectAnswer).text(ctl[0]); // REPLACING TEXT WITH CORRECT ANSWER
+					$('.active-question li').eq(linkIndexForCorrectAnswer).css({'background-image': 'url('+itl[0]+')', 'background-size': 'cover'});
+					$('.active-question span').eq(linkIndexForCorrectAnswer).css({'background': 'linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5))'}); // APPLYING CSS STYLES
+					console.log(' Third inner if true -- bottom');
+				} 
+			} // END 3RD / CATCH LOOP
+		} // END OF 3RD "IF" STATEMENT
+		
 	}	// END OF "LOAD QUESTION" FUNCTION
 
+	function setIndexIfZero(si) {
+		 if(si === 0) {
+			 si = -1;
+			 return si;
+		 } else {
+			return si; 
+		 }	
+	}
 
 	
 	
 })
 
-
-
+					
+//					if(i === 0) { // IF TRUE, STOPS LOOP AND PREVENTS CORRECT IMAGE FROM SHOWING DUPLICATES
+//						$addUl; 
+//						$addSpanText;
+//						$addLiImageStyle;
+//						$addSpanStyle;
+//						return;
+					
+//						var $addCorrectImage = $('.active-question span').eq(linkIndexForCorrectAnswer).text(ctl[0]); // REPLACING TEXT WITH CORRECT ANSWER
+//						var $addLiImageStyle = $('.active-question li').eq(linkIndexForCorrectAnswer).css({'background-image': 'url('+itl[0]+')', 'background-size': 'cover'}); // APPLYING CSS STYLES
+//						return;
+//						} 
+//					else {  // I don't understand how the below adds correct answer without first removing the link
+//						var $addCorrectImage = $('.active-question span').eq(linkIndexForCorrectAnswer).text(ctl[0]); // REPLACING TEXT WITH CORRECT ANSWER
+//						var $addLiImageStyle = $('.active-question li').eq(linkIndexForCorrectAnswer).css({'background-image': 'url('+itl[0]+')', 'background-size': 'cover'}); // APPLYING CSS STYLES
+//						return;
 
 
 
