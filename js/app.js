@@ -157,52 +157,38 @@ $(document).ready(function() {
 			
 			$('.question-container h2').text(gameQuestions[useThisQuestionNumber]); // display current question	
 			loadQuestion(imageOptions, choicesToLoad, choicesToLoadLength, imagesToLoad, imagesToLoadLength, useThisQuestionNumber);
+			
 		}
 		
 	}
 	
+	//////////////////////////////////////////////////////////////////////
 	function selectQuestion(gql) {
-		var randomQuestionNumber = getNumber(0, gql);
-//		console.log(randomQuestionNumber + ' --- in select question');
 		
+		var randomQuestionNumber = getNumber(0, gql);		
 		return randomQuestionNumber;	
 	}
-
+	//////////////////////////////////////////////////////////////////////
 
 	function loadQuestion(io, ctl, ctll, itl, itll, utqn) {  //	function loadQuestion(choicesToLoad, imagesToLoad, imageOptions, questionNumber)
 		
 		var prepLinkTags = '<li><span> </span></li>';
-//		var startIndex = utqn; Deactivate to test 3 index
-		var startIndex = 3;
+		var startIndex = utqn; // Deactivate to test 3 index
+//		var startIndex = 4;
 		var linkIndexForCorrectAnswer = getNumber(0, 4);
 
-		if(startIndex >= io) { // 1 > 4 -- false 
-			
-			console.log(startIndex + '---- First "IF" start index at top !!!!!!!!');
-			
-			var numLinks = (startIndex + io); // 1 + 4 = 5
-			var start = startIndex; // 7
-			var stop = start - 3; // 7 - 4 = 3 
-														// 7 < 11 
-			for(var i = start; i < numLinks; i--) {
-				var $addUl = $('.active-question ul').append(prepLinkTags); //.appendTo('.active-question ul'); // SETTING VARIABLES; HAVE TO BE PRIVATE TO THE LOOP. OTHERWISE THE 'ITERATOR' DOESN'T REGISTER DYNAMICALLY.
-				var $addSpanText = $('.active-question span').last().text(ctl[i]); // ADDING TEXT TO THE LAST LINK CREATED.
-				var $addLiImageStyle = $('.active-question li').last().css({'background-image': 'url('+itl[i]+')', 'background-size': 'cover'}); // APPLYING CSS TO NEW LINNK ELEMENT
-				var $addSpanStyle = $('.active-question span').last().css({'background': 'linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5))'}); // APPLYING CSS TO NEW SPAN ELEMENT
+		if(startIndex >= io) { // FOR 4 OR GREATER INDEX SITUATIONS
+			var stop = startIndex - 3; 
+			for(var start = startIndex; stop <= start; start--) {
+				$('.active-question ul').append(prepLinkTags);// SETTING VARIABLES; HAVE TO BE PRIVATE TO THE LOOP. OTHERWISE THE 'ITERATOR' DOESN'T REGISTER DYNAMICALLY.
+				$('.active-question span').last().text(ctl[start]); // ADDING TEXT TO THE LAST LINK CREATED.
+				$('.active-question li').last().css({'background-image': 'url('+itl[start]+')', 'background-size': 'cover'}); // APPLYING CSS TO NEW LINNK ELEMENT
+				$('.active-question span').last().css({'background': 'linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5))'}); // APPLYING CSS TO NEW SPAN ELEMENT
 
-				if (i === stop ) {
-					
-					if (linkIndexForCorrectAnswer < 5) { // WHEN I CREATE THE VARIABLES BELOW, IS IT AUTOMATICALLY REPLACING ONE OF THE ACTIVE LINK TAGS?
-						var $addCorrectImage = $('.active-question span').eq(linkIndexForCorrectAnswer).text(ctl[0]); // REPLACING TEXT WITH CORRECT ANSWER
-						var $addLiImageStyle = $('.active-question li').eq(linkIndexForCorrectAnswer).css({'background-image': 'url('+itl[0]+')', 'background-size': 'cover'}); // APPLYING CSS STYLES
-
-						return;
-					}
-				} else {
-					$addUl;
-					$addSpanText;
-					$addLiImageStyle;
-					$addSpanStyle; 
+				if (stop ) {
+					$('.active-question span').eq(linkIndexForCorrectAnswer).text(ctl[0]);
+					$('.active-question span').eq(linkIndexForCorrectAnswer).text(ctl[0]); // REPLACING TEXT WITH CORRECT ANSWER
+					$('.active-question li').eq(linkIndexForCorrectAnswer).css({'background-image': 'url('+itl[0]+')', 'background-size': 'cover'}); // APPLYING CSS STYLES
 				}
 			} // END 1ST FOR LOOP
 		} // END OF 1ST "IF" STATEMENT
@@ -216,9 +202,7 @@ $(document).ready(function() {
 				$('.active-question li').last().css({'background-image': 'url('+itl[start-1]+')', 'background-size': 'cover'}); // APPLYING CSS TO NEW LINNK ELEMENT
 				$('.active-question span').last().css({'background': 'linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5))'}); // APPLYING CSS TO NEW SPAN ELEMENT
 				
-				if(stop + 1) {  // WHEN TRUE, STOPS LOOP -- PUT CORRECT ANSWER INTO ONE OF THE CLICKABLE LINKS
-//					console.log(' Second inner if true -- top');
-//					$('.active-question ul').append(prepLinkTags);
+				if(stop + 1) {
 					$('.active-question span').eq(linkIndexForCorrectAnswer).text(ctl[0]); // REPLACING TEXT WITH CORRECT ANSWER
 					$('.active-question li').eq(linkIndexForCorrectAnswer).css({'background-image': 'url('+itl[0]+')', 'background-size': 'cover'});
 					$('.active-question span').eq(linkIndexForCorrectAnswer).css({'background': 'linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5))'}); // APPLYING CSS STYLES
@@ -244,16 +228,6 @@ $(document).ready(function() {
 		} // END OF 3RD "IF" STATEMENT
 		
 	}	// END OF "LOAD QUESTION" FUNCTION
-
-	function setIndexIfZero(si) {
-		 if(si === 0) {
-			 si = -1;
-			 return si;
-		 } else {
-			return si; 
-		 }	
-	}
-
 	
 	
 })
