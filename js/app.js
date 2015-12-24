@@ -81,6 +81,8 @@ $(document).ready(function() {
 
 	function getQuestion() { 
 		
+		var prepInsectQuestions = insectQuestions;
+		
 		var prepAntImages = insectImages.antImages;
 		var prepSpiderImages = insectImages.spiderImages;
 		var prepSnakeImages = insectImages.snakeImages;
@@ -100,30 +102,41 @@ $(document).ready(function() {
 		var prepLargestChoicesLength = insectChoices.largestInsectArray.length;
 
 //		var array = duplicateInsectQuestions; // Don't think array length of question is needed. Just need the index number
-		var imageOptions = 4;
 		var choicesToLoad = [];
 		var choicesToLoadLength = choicesToLoad.length;
+		
+		var imageOptions = 4;
 		var imagesToLoad = [];
 		var imagesToLoadLength = imagesToLoad.length;
 		
+		var gameQuestions = [];
+		var gameQuestionsLength = gameQuestions.length;
+		
+		var questionNumber = getNumber(0, gameQuestionsLength); // instantiating the questionNumber function to get random question number
+		
+//		selectGameQuestion(gameQuestionsLength, gameQuestions); // 
+		console.log(questionNumber + ' --- getting the question number') // this will determine category of question and dictate question and answer to load.
 		if(questionNumber === 0) {
 			for(var i = 0; i < prepAntChoicesLength; i++) {
 				choicesToLoad.push(prepAntChoices[i]);
 				imagesToLoad.push(prepAntImages[i]);
+				gameQuestions.push(prepInsectQuestions[i]);
 			}
 			
-			imagesToLoadLength = imagesToLoad.length;
-			choicesToLoadLength = choicesToLoad.length;
+			$('.question-container h2').text(gameQuestions[questionNumber]);
+//			imagesToLoadLength = imagesToLoad.length;
+//			choicesToLoadLength = choicesToLoad.length;
+//			gameQuestionsLength = gameQuestions.length;
+			
 			loadQuestion(imageOptions, choicesToLoad, choicesToLoadLength, imagesToLoad, imagesToLoadLength);
 		}
-		
 	}
 
 
 	function loadQuestion(io, ctl, ctll, itl, itll) {  //	function loadQuestion(choicesToLoad, imagesToLoad, imageOptions, questionNumber)
-		console.log(ctll + ' -- ctll working now');
-		console.log(itll + ' -- itll is working');
-		console.log(io + ' -- io is working')
+//		console.log(ctll + ' -- ctll working now');
+//		console.log(itll + ' -- itll is working');
+//		console.log(io + ' -- io is working')
 
 		var prepLinkTags = '<li><span> </span></li>';
 		var startIndex = Math.floor((Math.random() * (8 - 0)) + 0);
@@ -178,13 +191,7 @@ $(document).ready(function() {
 			
 	}	
 
-	function loadQuestion() {
-		var questionNumber = 0; //getNumber(0, d.length );
-		var activeInsectQuestion = duplicateInsectQuestions[questionNumber];
-		
-		$('.question-container h2').text(activeInsectQuestion);
-	}
-	
+
 	
 	
 })
