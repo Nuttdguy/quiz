@@ -41,140 +41,181 @@ $(document).ready(function() {
 			largestInsectImages: [ 'http://i.dailymail.co.uk/i/pix/2011/12/01/article-2068547-0F02AA4A00000578-492_634x370.jpg', 'http://s-ak.buzzfed.com/static/enhanced/terminal01/2011/3/22/12/enhanced-buzz-3415-1300812798-4.jpg', 'http://s3-ak.buzzfeed.com/static/enhanced/terminal01/2011/3/22/12/enhanced-buzz-3402-1300812938-8.jpg', 'http://s3-ak.buzzfeed.com/static/enhanced/terminal01/2011/3/22/12/enhanced-buzz-3420-1300812883-5.jpg', 'http://s3-ak.buzzfeed.com/static/enhanced/terminal01/2011/3/22/12/enhanced-buzz-3418-1300813082-11.jpg', 'http://s3-ak.buzzfeed.com/static/enhanced/terminal01/2011/3/22/13/enhanced-buzz-3418-1300813341-12.jpg']	
 		}
 
-		
-//					poisonousImages: ['http://www.conservationinstitute.org/wp-content/uploads/2013/09/Box-Jellyfish-David-Lambert-Flickr.jpg', 'http://cdn4.sci-news.com/images/2013/12/image_1595_1-King-cobra.jpg', 'http://www.slate.com/content/dam/slate/articles/health_and_science/wild_things/2015/06/150623_WILD_Octopus.jpg.CROP.promo-mediumlarge.jpg', 'http://www.factzoo.com/sites/all/img/invertebrates/arachnid/yellow-isreali-scorpion.jpg', 'http://www.conservationinstitute.org/wp-content/uploads/2013/09/Brazilizn-Wandering-Spider-Andreas-Kay-Flickr.jpg', 'http://www.conservationinstitute.org/wp-content/uploads/2013/09/Puffer-Fish-LisaSabin-Wilson-Flickr.jpg', 'http://www.slate.com/content/dam/slate/articles/health_and_science/wild_things/2015/06/150623_WILD_Octopus.jpg.CROP.promo-mediumlarge.jpg']
 // -------- END QUESTIONS AND ANSWERS -------- //
 	
 	var score = 0;	
-	var duplicateInsectQuestions = []; 	// getting copy of insect question array
+	var prepInsectQuestions;
+	var ant = 'Ant';
+	var spider = 'Spider';
+	var snake = 'Snake';
+	var poisonous = 'Poisonous';
+	var largest = 'Largest';
 
+	var prepAntImages;
+	var prepSpiderImages;
+	var prepSnakeImages;
+	var prepPoisonousImages;
+	var prepLargestInsectImages;
+
+	var prepAntChoices;
+	var prepSpiderChoices;
+	var prepSnakeChoices;
+	var prepPoisonousChoices;
+	var prepLargestInsectChoices;
+
+	var prepAntChoicesLength;
+	var prepSpiderChoicesLength;
+	var prepSnakeChoicesLength;
+	var prepPoisonousChoicesLength;
+	var prepLargestChoicesLength;
+
+	var gameQuestionsLength;
+	var useThisQuestionNumber;
+	var gameQuestions;
+	var updateQuestionList;
+	
+	var count = 0;
+//	var currentQuestionList;
+	
 	newGame();
-
+	
+	console.log(prepAntChoices); // THIS PROVES VALUES DEFINED IN FUNCTIONS RETURN TO GLOBAL SCOPE
+	
+	
+	///////////////////// 	START OF FUNCTION
 	
 	function newGame() {
 		
-		$('.information-header').on('click', function() {
-			
-		})
-		
 		$('.question-container .submit').on('click', function() {
-//			getInsectQuestions();
 			getQuestion();
 		})
 		
 	}
 	
+	///////////////////// 	START OF FUNCTION
 	
 	function getNumber(min, max) { // getting random number to use for question index 
 		return Math.floor(Math.random() * (max - min)) + min;
 	}
 	
+	///////////////////// 	START OF FUNCTION
 	
-//	function getInsectQuestions() {	
-//		var prepInsectQuestionLength = insectQuestions.length;
-//		
-//		for (var i = 0; i < prepInsectQuestionLength; ) {
-//				duplicateInsectQuestions = insectQuestions;
-//				i++;
-//			}
-//		return duplicateInsectQuestions;
-//	}
-	
-
 	function getQuestion() { 
 		
-		var prepInsectQuestions = insectQuestions;
-		
-		var prepAntImages = insectImages.antImages;
-		var prepSpiderImages = insectImages.spiderImages;
-		var prepSnakeImages = insectImages.snakeImages;
-		var prepPoisonousImages = insectImages.poisonousImages;
-		var prepLargestInsectImages = insectImages.largestInsectImages;
-		
-		var prepAntChoices = insectChoices.antArray;
-		var prepSpiderChoices = insectChoices.spiderArray;
-		var prepSnakeChoices = insectChoices.snakeArray;
-		var prepPoisonousChoices = insectChoices.posionousArray;
-		var prepLargestInsectChoices = insectChoices.largestInsectArray;
-		
-		var prepAntChoicesLength = insectChoices.antArray.length;
-		var prepSpiderChoicesLength = insectChoices.spiderArray.length;
-		var prepSnakeChoicesLength = insectChoices.snakeArray.length;
-		var prepPoisonousChoicesLength = insectChoices.posionousArray.length;
-		var prepLargestChoicesLength = insectChoices.largestInsectArray.length;
+		prepInsectQuestions = insectQuestions;
 
-//		var array = duplicateInsectQuestions; // Don't think array length of question is needed. Just need the index number
+		prepAntImages = insectImages.antImages;
+		prepSpiderImages = insectImages.spiderImages;
+		prepSnakeImages = insectImages.snakeImages;
+		prepPoisonousImages = insectImages.poisonousImages;
+		prepLargestInsectImages = insectImages.largestInsectImages;
 
+		prepAntChoices = insectChoices.antArray;
+		prepSpiderChoices = insectChoices.spiderArray;
+		prepSnakeChoices = insectChoices.snakeArray;
+		prepPoisonousChoices = insectChoices.posionousArray;
+		prepLargestInsectChoices = insectChoices.largestInsectArray;
 
-		var gameQuestionsLength = prepInsectQuestions.length;
-		var useThisQuestionNumber = selectQuestion(gameQuestionsLength);  // instantiating the questionNumber function to get random question number
-	
-		console.log(useThisQuestionNumber + ' -- use this question number');  // NEED A FUNCTION -- WILL NEED TO REMOVE THE INDEX NUMBER OF THE QUESTION ONLY -- ONCE IT HAS BEEN USED.		
+		prepAntChoicesLength = insectChoices.antArray.length;
+		prepSpiderChoicesLength = insectChoices.spiderArray.length;
+		prepSnakeChoicesLength = insectChoices.snakeArray.length;
+		prepPoisonousChoicesLength = insectChoices.posionousArray.length;
+		prepLargestChoicesLength = insectChoices.largestInsectArray.length;
+
+		gameQuestionsLength = prepInsectQuestions.length;
 		
+		useThisQuestionNumber = selectQuestion(gameQuestionsLength);
+
+		gameQuestions = updateGameQuestionArray(prepInsectQuestions, useThisQuestionNumber);
+		
+		console.log(useThisQuestionNumber + ' -- use this question number'); 
+		console.log(gameQuestions + ' -- use this question number'); 
+		
+
 		if(useThisQuestionNumber === 0 || useThisQuestionNumber === 1 || useThisQuestionNumber === 2 || useThisQuestionNumber === 3 || useThisQuestionNumber === 4) {
+			
 			var imageOptions = 4;
-			var gameQuestions = [];
 			var imagesToLoad = [];
 			var choicesToLoad = [];
 			var choicesToLoadLength = choicesToLoad.length;
 			var imagesToLoadLength = imagesToLoad.length;
+				
 			if(useThisQuestionNumber === 0) { 
 				for(var i = 0; i < prepAntChoicesLength; i++) {
 					choicesToLoad.push(prepAntChoices[i]);
 					imagesToLoad.push(prepAntImages[i]);
-					gameQuestions.push(prepInsectQuestions[i]);
 				}
-			}
-			if(useThisQuestionNumber === 1) { 
+			} else if(useThisQuestionNumber === 1) { 
 				for(var i = 0; i < prepSpiderChoicesLength; i++) {
 					choicesToLoad.push(prepSpiderChoices[i]);
 					imagesToLoad.push(prepSpiderImages[i]);
-					gameQuestions.push(prepInsectQuestions[i]);
 				}
-			}
-			if(useThisQuestionNumber === 2) { 
+			} else if(useThisQuestionNumber === 2) { 
 				for(var i = 0; i < prepSnakeChoicesLength; i++) {
 					choicesToLoad.push(prepSnakeChoices[i]);
 					imagesToLoad.push(prepSnakeImages[i]);
-					gameQuestions.push(prepInsectQuestions[i]);
+//					gameQuestions.push(prepInsectQuestions[i]);
 				}
-			}
-			if(useThisQuestionNumber === 3) { 
+			} else if(useThisQuestionNumber === 3) { 
 				for(var i = 0; i < prepPoisonousChoicesLength; i++) {
 					choicesToLoad.push(prepPoisonousChoices[i]);
 					imagesToLoad.push(prepPoisonousImages[i]);
-					gameQuestions.push(prepInsectQuestions[i]);
 				}
-			}
-			if(useThisQuestionNumber === 4) { 
+			} else if(useThisQuestionNumber === 4) { 
 				for(var i = 0; i < prepLargestChoicesLength; i++) {
 					choicesToLoad.push(prepLargestInsectChoices[i]);
 					imagesToLoad.push(prepLargestInsectImages[i]);
-					gameQuestions.push(prepInsectQuestions[i]);
 				}
 			}
-			console.log(gameQuestions + ' -- game questions')
+			// gameQuestions.push(prepInsectQuestions[i]);
+//			console.log(gameQuestions + ' -- game questions')
 			
 			$('.question-container h2').text(gameQuestions[useThisQuestionNumber]); // display current question	
+			
 			loadQuestion(imageOptions, choicesToLoad, choicesToLoadLength, imagesToLoad, imagesToLoadLength, useThisQuestionNumber);
 			
-		}
-		
+			console.log(gameQuestions);
+			
+		}	
 	}
 	
-	//////////////////////////////////////////////////////////////////////
+	///////////////////// 	START OF FUNCTION
+	
 	function selectQuestion(gql) {
 		
 		var randomQuestionNumber = getNumber(0, gql);		
 		return randomQuestionNumber;	
 	}
-	//////////////////////////////////////////////////////////////////////
+	
+	///////////////////// 	START OF FUNCTION
 
-	function loadQuestion(io, ctl, ctll, itl, itll, utqn) {  //	function loadQuestion(choicesToLoad, imagesToLoad, imageOptions, questionNumber)
+	function updateGameQuestionArray(piq, utqn) {
+		var currentQuestionList = piq;
+		updateQuestionList = [];
+		
+		if(count === 0) {
+			for(i in currentQuestionList) {
+				updateQuestionList.push(piq[i]);
+			}
+			count++;
+		} else if (count > 0 ) {
+			updateQuestionList = currentQuestionList.splice(utqn, 1);
+		}
+		
+		console.log(updateQuestionList + ' -- in the updateGameQuestion function');
+		console.log(count + ' -- the current count');
+		return updateQuestionList;
+		
+	}
+	
+	///////////////////// 	START OF FUNCTION
+	
+
+	function loadQuestion(io, ctl, ctll, itl, itll, utqn) { 
 		
 		var prepLinkTags = '<li><span> </span></li>';
 		var startIndex = utqn; // Deactivate to test 3 index
-//		var startIndex = 4;
+//		var startIndex = 2; // For debugging purposes
 		var linkIndexForCorrectAnswer = getNumber(0, 4);
 
 		if(startIndex >= io) { // FOR 4 OR GREATER INDEX SITUATIONS
@@ -227,36 +268,18 @@ $(document).ready(function() {
 			} // END 3RD / CATCH LOOP
 		} // END OF 3RD "IF" STATEMENT
 		
-	}	// END OF "LOAD QUESTION" FUNCTION
+	}	// END OF "LOADQUESTION" FUNCTION
+	
+	///////////////////// 	START OF FUNCTION
+	
+	function isAnswerCorrect() {}
 	
 	
 })
 
-					
-//					if(i === 0) { // IF TRUE, STOPS LOOP AND PREVENTS CORRECT IMAGE FROM SHOWING DUPLICATES
-//						$addUl; 
-//						$addSpanText;
-//						$addLiImageStyle;
-//						$addSpanStyle;
-//						return;
-					
-//						var $addCorrectImage = $('.active-question span').eq(linkIndexForCorrectAnswer).text(ctl[0]); // REPLACING TEXT WITH CORRECT ANSWER
-//						var $addLiImageStyle = $('.active-question li').eq(linkIndexForCorrectAnswer).css({'background-image': 'url('+itl[0]+')', 'background-size': 'cover'}); // APPLYING CSS STYLES
-//						return;
-//						} 
-//					else {  // I don't understand how the below adds correct answer without first removing the link
-//						var $addCorrectImage = $('.active-question span').eq(linkIndexForCorrectAnswer).text(ctl[0]); // REPLACING TEXT WITH CORRECT ANSWER
-//						var $addLiImageStyle = $('.active-question li').eq(linkIndexForCorrectAnswer).css({'background-image': 'url('+itl[0]+')', 'background-size': 'cover'}); // APPLYING CSS STYLES
-//						return;
 
 
-
-
-
-
-
-
-	function isAnswerCorrect() {}
+	
 	
 	function gameSummary() {}
 	
