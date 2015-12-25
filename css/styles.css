@@ -79,9 +79,7 @@ h1 {
 	width: 100%;
 	position: relative;
 	top: 0;
-	left: 0;
-	z-index: 98;
-/*	visibility: hidden;  Temporarily hiding question box */
+	z-index: 100;
 }
 
 .active-question {
@@ -117,9 +115,8 @@ h1 {
 	margin: 20px 20px;
 }
 
-.active-question li span {
+.default {
 	height: 180px;
-/*	border-radius: 18px;*/
 	display: block;
 	line-height: 160px;
 	width: 100%;
@@ -127,9 +124,28 @@ h1 {
 	background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5));
 }
 
-.active-question li span:hover {
-	background: linear-gradient(rgba(0,0,0,.8), rgba(0,0,0,.8));
+.default:hover {
+	background: rgba(95, 94, 114, 0.88);
+	transition: background 1s;
+	font-size: 130%;
+	cursor: pointer;
 }
+
+/*
+.active-question .option1:hover,
+.active-question .option2:hover,
+.active-question .option3:hover,
+.active-question .option4:hover,
+.active-question .option5:hover,
+.active-question .option6:hover,
+.active-question .option7:hover,
+.active-question .option8:hover {
+	background: rgba(95, 94, 114, 0.88);
+	transition: background 1s;
+	font-size: 130%;
+	cursor: pointer;
+}
+*/
 
 
 .active-question button {
@@ -141,6 +157,7 @@ h1 {
 	font-size: 2.5em;
 	text-transform: uppercase;
 	padding: 10px;
+	cursor: pointer;
 }
 
 .active-question button:hover {
@@ -152,10 +169,9 @@ h1 {
 /*  HIDDEN ANSWER OVERLAY STYLES   */
 /*------------------------------*/
 
-.hidden-answer-overlay {
+.answer-reveal {
 	height: 800px;
 	text-align: center;
-	display: none;
 	background-color: rgba(0, 0, 0, 0.93);
 	position: relative;
 	top: -800px;
@@ -163,7 +179,7 @@ h1 {
 	z-index: 99;
 }
 
-.hidden-answer-overlay > h2 {
+.answer-reveal > h2 {
 	width: 80%;
 	margin: 0 auto;
 	font-size: 3.2em;
@@ -173,14 +189,14 @@ h1 {
 	color: #fff;
 }
 
-.hidden-answer-overlay > h1 {
+.answer-reveal > h1 {
 	height: 100px;
 	font-size: 3.2em;
 	padding: 30px 0 0;
 	color: #fff;
 }
 
-.hidden-answer-overlay > button {
+.answer-reveal > button {
 	margin-top: 40px;
 	padding: 20px 20px;
 	font-size: 2.5em;
@@ -201,7 +217,7 @@ h1 {
 	position: relative;
 	top: -1600px;
 	left: 0;
-	z-index: 100;
+	z-index: 98;
 }
 
 .game-start-overlay > button {

@@ -80,15 +80,10 @@ $(document).ready(function() {
 	var choicesToLoad = [];
 	var choicesToLoadLength;
 	var imagesToLoadLength;
-	var prepLinkTags = '<li><span> </span></li>';
+	var prepLinkTags = '<li><span class="default"> </span></li>';
 	
-	
-//	var currentQuestionList;
 	
 	newGame();
-	
-	console.log(prepAntChoices); // THIS PROVES VALUES DEFINED IN FUNCTIONS RETURN TO GLOBAL SCOPE
-	
 	
 	///////////////////// 	START OF FUNCTION
 	
@@ -100,7 +95,56 @@ $(document).ready(function() {
 			displayQuestion();
 			getQuestionImagesAndText();
 			showQuestionImagesAndText();
+			//selectedAnswer(); // moved below
+			//showAnswer();
+			getAnswer();
+			hideActiveQuestion();
+		})
+	}
+	
+	function getAnswer() {
+		$('.active-question li').on('click', function() {
+			selectedAnswer();
 			showAnswer();
+		})
+	}
+	
+	
+	function showAnswer() {
+		var whichLiClicked0 = $('.active-question li').eq(0).hasClass('optionC');
+		var whichLiClicked1 = $('.active-question li').eq(1).hasClass('optionC');
+		var whichLiClicked2 = $('.active-question li').eq(2).hasClass('optionC');
+		var whichLiClicked3 = $('.active-question li').eq(3).hasClass('optionC');
+		var whichLiClicked4 = $('.active-question li').eq(4).hasClass('optionC');
+		
+		if(whichLiClicked0) { 
+			console.log('Link Zero'); 
+		}
+		if(whichLiClicked1) { 
+			console.log('Link One'); 
+		} 
+		if(whichLiClicked2) { 
+			console.log('Link Two'); 
+		}
+		if(whichLiClicked3) { 
+			console.log('Link Three'); 
+		}
+		if(whichLiClicked4) { 
+			console.log('Link Four'); 
+		}
+		
+	}
+	
+		
+	function selectedAnswer() {
+		
+//		$('.active-question li').on('click', function() {
+			$('.answer').addClass('answer-reveal');
+			$('.question-container').fadeOut(500, function() {
+				$(this).css({'z-index': '90', 'display': 'block'});
+				$('.answer-reveal').fadeIn(3000, function() {
+				})
+//		})	
 		})
 		
 	}
@@ -208,12 +252,14 @@ $(document).ready(function() {
 				$('.active-question ul').append(prepLinkTags);// SETTING VARIABLES; HAVE TO BE PRIVATE TO THE LOOP. OTHERWISE THE 'ITERATOR' DOESN'T REGISTER DYNAMICALLY.
 				$('.active-question span').last().text(choicesToLoad[start]); // ADDING TEXT TO THE LAST LINK CREATED.
 				$('.active-question li').last().css({'background-image': 'url('+imagesToLoad[start]+')', 'background-size': 'cover'}); // APPLYING CSS TO NEW LINNK ELEMENT
-				$('.active-question span').last().css({'background': 'linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5))'}); // APPLYING CSS TO NEW SPAN ELEMENT
+				$('.active-question li span').last().addClass('option'+[start]);
+				//$('.active-question span').last().css({'background': 'linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5))'}); // APPLYING CSS TO NEW SPAN ELEMENT
 
 				if (stop ) {
 					$('.active-question span').eq(linkIndexForCorrectAnswer).text(choicesToLoad[0]);
 					$('.active-question span').eq(linkIndexForCorrectAnswer).text(choicesToLoad[0]); // REPLACING TEXT WITH CORRECT ANSWER
 					$('.active-question li').eq(linkIndexForCorrectAnswer).css({'background-image': 'url('+imagesToLoad[0]+')', 'background-size': 'cover'}); // APPLYING CSS STYLES
+					$('.active-question li').eq(linkIndexForCorrectAnswer).addClass('optionC');
 				}
 			} // END 1ST FOR LOOP
 		} // END OF 1ST "IF" STATEMENT
@@ -225,12 +271,14 @@ $(document).ready(function() {
 				$('.active-question ul').append(prepLinkTags); // SETTING VARIABLES; HAVE TO BE PRIVATE TO THE LOOP. OTHERWISE THE 'ITERATOR' DOESN'T REGISTER DYNAMICALLY.				
 				$('.active-question span').last().text(choicesToLoad[start-1]); // ADDING TEXT TO THE LAST LINK CREATED.
 				$('.active-question li').last().css({'background-image': 'url('+imagesToLoad[start-1]+')', 'background-size': 'cover'}); // APPLYING CSS TO NEW LINNK ELEMENT
-				$('.active-question span').last().css({'background': 'linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5))'}); // APPLYING CSS TO NEW SPAN ELEMENT
+				$('.active-question li span').last().addClass('option'+[start]);
+				//$('.active-question span').last().css({'background': 'linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5))'}); // APPLYING CSS TO NEW SPAN ELEMENT
 				
 				if(stop + 1) {
 					$('.active-question span').eq(linkIndexForCorrectAnswer).text(choicesToLoad[0]); // REPLACING TEXT WITH CORRECT ANSWER
 					$('.active-question li').eq(linkIndexForCorrectAnswer).css({'background-image': 'url('+imagesToLoad[0]+')', 'background-size': 'cover'});
-					$('.active-question span').eq(linkIndexForCorrectAnswer).css({'background': 'linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5))'}); // APPLYING CSS STYLES
+					//$('.active-question span').eq(linkIndexForCorrectAnswer).css({'background': 'linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5))'}); // APPLYING CSS STYLES
+					$('.active-question li').eq(linkIndexForCorrectAnswer).addClass('optionC');
 				}
 
 			} // END 2ND / CATCH LOOP
@@ -243,46 +291,58 @@ $(document).ready(function() {
 					$('.active-question ul').append(prepLinkTags);
 					$('.active-question span').last().text(choicesToLoad[start + 1]);
 					$('.active-question li').last().css({'background-image': 'url('+imagesToLoad[start + 1]+')', 'background-size': 'cover'});
-					$('.active-question span').last().css({'background': 'linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5))'});
+					$('.active-question li span').last().addClass('option'+[start]);
+					//$('.active-question span').last().css({'background': 'linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5))'});
 				} else if (stop) {
 					$('.active-question span').eq(linkIndexForCorrectAnswer).text(choicesToLoad[0]); 
 					$('.active-question li').eq(linkIndexForCorrectAnswer).css({'background-image': 'url('+imagesToLoad[0]+')', 'background-size': 'cover'});
-					$('.active-question span').eq(linkIndexForCorrectAnswer).css({'background': 'linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5))'});
+					//$('.active-question span').eq(linkIndexForCorrectAnswer).css({'background': 'linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5))'});
+					$('.active-question li').eq(linkIndexForCorrectAnswer).addClass('optionC');
 				} 
 			} // END 3RD / CATCH LOOP
 		} // END OF 3RD "IF" STATEMENT
 		
 	}	// END OF "LOADQUESTION" FUNCTION
 	
-	
-	
-	function isAnswerCorrect() {}
-	
+//	function showHiddenAnswerOverlay() {
+//		
+////		$('.active-question').removeClass('submit');
+////		$('.active-question').addClass('show');
+////		$('.hidden-answer-overlay').css({'display': 'block'});
+//		
+//	}
+//	
+//	function showAnswer() {
+//		
+//		
+//	}
+//	
+	function hideActiveQuestion() {	}
 	
 })
 
 
 //			function loadQuestion(io, ctl, ctll, itl, itll, utqn) 
-
-	function updateGameQuestionArray(piq, utqn) {
-		var currentQuestionList = piq;
-		updateQuestionList = [];
-		
-		if(count === 0) {
-			for(i in currentQuestionList) {
-				updateQuestionList.push(piq[i]);
-			}
-			count++;
-		} else if (count > 0 ) {
-			updateQuestionList = currentQuestionList.splice(utqn, 1);
-		}
-		
-		console.log(updateQuestionList + ' -- in the updateGameQuestion function');
-		console.log(count + ' -- the current count');
-		return updateQuestionList;
-		
-	}
-
+//
+//	function updateGameQuestionArray(piq, utqn) {
+//		var currentQuestionList = piq;
+//		updateQuestionList = [];
+//		
+//		if(count === 0) {
+//			for(i in currentQuestionList) {
+//				updateQuestionList.push(piq[i]);
+//			}
+//			count++;
+//		} else if (count > 0 ) {
+//			updateQuestionList = currentQuestionList.splice(utqn, 1);
+//		}
+//		
+//		console.log(updateQuestionList + ' -- in the updateGameQuestion function');
+//		console.log(count + ' -- the current count');
+//		return updateQuestionList;
+//		
+//	}
+//
 
 
 
