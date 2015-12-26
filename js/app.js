@@ -45,12 +45,8 @@ $(document).ready(function() {
 	
 	var score = 0;	
 	var prepInsectQuestions;
-	var ant = 'Ant';
-	var spider = 'Spider';
-	var snake = 'Snake';
-	var poisonous = 'Poisonous';
-	var largest = 'Largest';
-
+	var prepAnswers;
+	
 	var prepAntImages;
 	var prepSpiderImages;
 	var prepSnakeImages;
@@ -72,7 +68,6 @@ $(document).ready(function() {
 	var gameQuestionsLength;
 	var useThisQuestionNumber;
 	var gameQuestions;
-	var updateQuestionList;
 	
 	var count = 0;
 	var imageOptions = 4;
@@ -81,9 +76,15 @@ $(document).ready(function() {
 	var choicesToLoadLength;
 	var imagesToLoadLength;
 	var prepLinkTags = '<li><span class="default"> </span></li>';
+	var linkIndexForCorrectAnswer;
+	
+	var $answerH2 = $('.answer h2');
+	var $answerH3 = $('.answer h3');
+	var $answerH1 = $('.answer h1');
 	
 	
 	newGame();
+	//nextQuestion();
 	
 	///////////////////// 	START OF FUNCTION
 	
@@ -95,59 +96,21 @@ $(document).ready(function() {
 			displayQuestion();
 			getQuestionImagesAndText();
 			showQuestionImagesAndText();
-			//selectedAnswer(); // moved below
-			//showAnswer();
-			getAnswer();
-			hideActiveQuestion();
+//			updateQuestionList();
+			correctAnswer();
+//			nextQuestion();
+			console.log(gameQuestions);
 		})
 	}
 	
-	function getAnswer() {
-		$('.active-question li').on('click', function() {
-			selectedAnswer();
-			showAnswer();
-		})
-	}
-	
-	
-	function showAnswer() {
-		var whichLiClicked0 = $('.active-question li').eq(0).hasClass('optionC');
-		var whichLiClicked1 = $('.active-question li').eq(1).hasClass('optionC');
-		var whichLiClicked2 = $('.active-question li').eq(2).hasClass('optionC');
-		var whichLiClicked3 = $('.active-question li').eq(3).hasClass('optionC');
-		var whichLiClicked4 = $('.active-question li').eq(4).hasClass('optionC');
-		
-		if(whichLiClicked0) { 
-			console.log('Link Zero'); 
-		}
-		if(whichLiClicked1) { 
-			console.log('Link One'); 
-		} 
-		if(whichLiClicked2) { 
-			console.log('Link Two'); 
-		}
-		if(whichLiClicked3) { 
-			console.log('Link Three'); 
-		}
-		if(whichLiClicked4) { 
-			console.log('Link Four'); 
-		}
-		
-	}
-	
-		
-	function selectedAnswer() {
-		
-//		$('.active-question li').on('click', function() {
-			$('.answer').addClass('answer-reveal');
-			$('.question-container').fadeOut(500, function() {
-				$(this).css({'z-index': '90', 'display': 'block'});
-				$('.answer-reveal').fadeIn(3000, function() {
-				})
-//		})	
-		})
-		
-	}
+//	function nextQuestion() {
+//		
+//		$('.next-question').on('click', function() {
+//			$('.active-question li').remove();
+//		})
+//		
+//	}
+//	
 	
 	///////////////////// 	START OF FUNCTION
 	
@@ -193,6 +156,14 @@ $(document).ready(function() {
 			gameQuestions.push(prepInsectQuestions[i]);
 		}
 	}
+	
+	
+	function updateQuestionList() {
+		
+		gameQuestions = gameQuestions.splice(useThisQuestionNumber, 1);
+		
+	}
+	
 	
 	
 	function displayQuestion() {	
@@ -244,7 +215,7 @@ $(document).ready(function() {
 		
 		var startIndex = useThisQuestionNumber; // Deactivate to test 3 index
 //		var startIndex = 2; // For debugging purposes
-		var linkIndexForCorrectAnswer = getNumber(0, 4);
+		linkIndexForCorrectAnswer = getNumber(0, 4);
 
 		if(startIndex >= imageOptions) { // FOR 4 OR GREATER INDEX SITUATIONS
 			var stop = startIndex - 3; 
@@ -252,11 +223,10 @@ $(document).ready(function() {
 				$('.active-question ul').append(prepLinkTags);// SETTING VARIABLES; HAVE TO BE PRIVATE TO THE LOOP. OTHERWISE THE 'ITERATOR' DOESN'T REGISTER DYNAMICALLY.
 				$('.active-question span').last().text(choicesToLoad[start]); // ADDING TEXT TO THE LAST LINK CREATED.
 				$('.active-question li').last().css({'background-image': 'url('+imagesToLoad[start]+')', 'background-size': 'cover'}); // APPLYING CSS TO NEW LINNK ELEMENT
-				$('.active-question li span').last().addClass('option'+[start]);
+				//$('.active-question li').last().addClass('option');
 				//$('.active-question span').last().css({'background': 'linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5))'}); // APPLYING CSS TO NEW SPAN ELEMENT
 
 				if (stop ) {
-					$('.active-question span').eq(linkIndexForCorrectAnswer).text(choicesToLoad[0]);
 					$('.active-question span').eq(linkIndexForCorrectAnswer).text(choicesToLoad[0]); // REPLACING TEXT WITH CORRECT ANSWER
 					$('.active-question li').eq(linkIndexForCorrectAnswer).css({'background-image': 'url('+imagesToLoad[0]+')', 'background-size': 'cover'}); // APPLYING CSS STYLES
 					$('.active-question li').eq(linkIndexForCorrectAnswer).addClass('optionC');
@@ -271,7 +241,7 @@ $(document).ready(function() {
 				$('.active-question ul').append(prepLinkTags); // SETTING VARIABLES; HAVE TO BE PRIVATE TO THE LOOP. OTHERWISE THE 'ITERATOR' DOESN'T REGISTER DYNAMICALLY.				
 				$('.active-question span').last().text(choicesToLoad[start-1]); // ADDING TEXT TO THE LAST LINK CREATED.
 				$('.active-question li').last().css({'background-image': 'url('+imagesToLoad[start-1]+')', 'background-size': 'cover'}); // APPLYING CSS TO NEW LINNK ELEMENT
-				$('.active-question li span').last().addClass('option'+[start]);
+				//$('.active-question li').last().addClass('option');
 				//$('.active-question span').last().css({'background': 'linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5))'}); // APPLYING CSS TO NEW SPAN ELEMENT
 				
 				if(stop + 1) {
@@ -291,7 +261,7 @@ $(document).ready(function() {
 					$('.active-question ul').append(prepLinkTags);
 					$('.active-question span').last().text(choicesToLoad[start + 1]);
 					$('.active-question li').last().css({'background-image': 'url('+imagesToLoad[start + 1]+')', 'background-size': 'cover'});
-					$('.active-question li span').last().addClass('option'+[start]);
+					//$('.active-question li').last().addClass('option');
 					//$('.active-question span').last().css({'background': 'linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5))'});
 				} else if (stop) {
 					$('.active-question span').eq(linkIndexForCorrectAnswer).text(choicesToLoad[0]); 
@@ -302,25 +272,144 @@ $(document).ready(function() {
 			} // END 3RD / CATCH LOOP
 		} // END OF 3RD "IF" STATEMENT
 		
-	}	// END OF "LOADQUESTION" FUNCTION
+	}
 	
-//	function showHiddenAnswerOverlay() {
+	///////////////////// 	START OF FUNCTION
+	
+	function correctAnswer() {
+		
+		console.log(useThisQuestionNumber + ' this is the question number');
+		console.log(score + ' -- this is the current score' )
+		console.log(linkIndexForCorrectAnswer + ' ++ correct Link');
+		console.log($('.active-question li').eq(linkIndexForCorrectAnswer));
+		
+		var checkIndex0ForOptionC = $('.active-question li').eq(0).hasClass('optionC');
+		var checkIndex1ForOptionC = $('.active-question li').eq(1).hasClass('optionC');
+		var checkIndex2ForOptionC = $('.active-question li').eq(2).hasClass('optionC');
+		var checkIndex3ForOptionC = $('.active-question li').eq(3).hasClass('optionC');
+		
+		console.log(checkIndex0ForOptionC + ' this is index 0');
+		console.log(checkIndex1ForOptionC + ' this is index 1');
+		console.log(checkIndex2ForOptionC + ' this is index 2');
+		console.log(checkIndex3ForOptionC + ' this is index 3');
+		
+		$('.active-question li').on('click', function() {
+			if (checkIndex0ForOptionC === false || checkIndex1ForOptionC === false || checkIndex2ForOptionC === false || checkIndex3ForOptionC === false) {
+				$answerH2.text('Sorry');
+				$answerH3.text('You got it wrong this time');
+				score;
+				$answerH1.text('YOUR SCORE:  ' + score + '  of 5');
+				showAnswerReveal();
+			}
+		})
+		
+		$('.active-question li').eq(0).on('click', function() {
+			if (checkIndex0ForOptionC === true) {
+				showAnswer(useThisQuestionNumber);
+				showAnswerReveal();
+			}
+		})
+		
+		$('.active-question li').eq(1).on('click', function() {
+			if (checkIndex1ForOptionC === true) {
+				showAnswer(useThisQuestionNumber);
+				showAnswerReveal();
+			}
+		})
+		
+		$('.active-question li').eq(2).on('click', function() {
+			if (checkIndex2ForOptionC === true) {
+				showAnswer(useThisQuestionNumber);
+				showAnswerReveal();
+			}
+		})
+		
+		$('.active-question li').eq(3).on('click', function() {
+			if (checkIndex3ForOptionC === true) {
+				showAnswer(useThisQuestionNumber);
+				showAnswerReveal();
+			}
+		})
+		
+	}
+	
+	///////////////////// 	START OF FUNCTION
+	
+	
+	function showAnswerReveal() {
+
+		$('.answer').addClass('answer-reveal');
+		
+		$('.question-container').fadeOut(500, function() {
+			$(this).css({'z-index': '90', 'display': 'block'});
+				$('.answer-reveal').fadeIn(3000, function() {
+			})
+		})
+	}
+	
+//	function hideAnswerReveal() {
 //		
-////		$('.active-question').removeClass('submit');
-////		$('.active-question').addClass('show');
-////		$('.hidden-answer-overlay').css({'display': 'block'});
+//		$('.answer').removeClass('answer-reveal');
+//		
+//		$('.answer-reveal').fadeOut(500, function() {
+//			$(this).css({ 'display': 'block'});
+////				$('.answer-reveal').fadeIn(3000, function() {
+////			})
+//		})
 //		
 //	}
-//	
-//	function showAnswer() {
-//		
-//		
-//	}
-//	
+	
+	///////////////////// 	START OF FUNCTION
+	
+	
+	function showAnswer(utqn) {
+		
+		var hasClassActive = $('active-question-li').hasClass('active');
+		
+		if(utqn === 0) { 
+			$answerH2.text(correctAnswers.correctAnt[0]);
+			$answerH3.text(correctAnswers.correctAnt[1]);
+			score++;
+			$answerH1.text('YOUR SCORE:  ' + score);
+		}
+		if(utqn === 1) { 
+			$answerH2.text(correctAnswers.correctSpider[0]);
+			$answerH3.text(correctAnswers.correctSpider[1]);
+			score++;
+			$answerH1.text('YOUR SCORE:  ' + score);
+		} 
+		if(utqn === 2) { 
+			$answerH2.text(correctAnswers.correctSnake[0]);
+			$answerH3.text(correctAnswers.correctSnake[1]);
+			score++;
+			$answerH1.text('YOUR SCORE:  ' + score);
+		}
+		if(utqn === 3) { 
+			$answerH2.text(correctAnswers.correctPoisonous[0]);
+			$answerH3.text(correctAnswers.correctPoisonous[1]);
+			score++;
+			$answerH1.text('YOUR SCORE:  ' + score);
+		}
+		if(utqn === 4) { 
+			$answerH2.text(correctAnswers.correctLargestInsect[0]);
+			$answerH3.text(correctAnswers.correctLargestInsect[1]);
+			score++;
+			$answerH1.text('YOUR SCORE:  ' + score);
+		} 
+		
+	}
+	
+	
+
+	
+	
+	
+	
 	function hideActiveQuestion() {	}
 	
 })
 
+////---------------------END OF JQUERY DOCUMENT READY
 
 //			function loadQuestion(io, ctl, ctll, itl, itll, utqn) 
 //

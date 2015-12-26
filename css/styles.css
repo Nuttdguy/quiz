@@ -183,11 +183,21 @@ h1 {
 	width: 80%;
 	margin: 0 auto;
 	font-size: 3.2em;
-	padding-top: 50px;
-	height: 130px;
+	padding-top: 60px;
+	height: 90px;
 	word-wrap: break-word;
 	color: #fff;
 }
+
+.answer-reveal > h3 {
+	width: 80%;
+	margin: 0 auto;
+	font-size: 2em;
+	height: auto;
+	word-wrap: break-word;
+	color: #fff;
+}
+
 
 .answer-reveal > h1 {
 	height: 100px;
