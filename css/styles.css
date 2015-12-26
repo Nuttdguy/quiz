@@ -78,15 +78,16 @@ h1 {
 	height: 800px;
 	width: 100%;
 	position: relative;
+/*	visibility: hidden;*/
 	top: 0;
 	z-index: 100;
 }
 
-.active-question {
+.question-container {
 	text-align: center;
 }
 
-.active-question > h2 {
+.question-container  h2 {
 	padding-top: 30px;
 	width: 80%;
 	margin: 0 auto;
@@ -95,7 +96,7 @@ h1 {
 	word-wrap: break-word;
 }
 
-.active-question > ul {
+.question-container ul {
 	display: table;
 	width: 100%;
 	margin: 0 auto 40px;;
@@ -103,10 +104,7 @@ h1 {
 	color: #fff;
 }
 
-.active-question li {
-/*	display: table-cell;*/
-/*	border-radius: 8px;*/
-/*	padding-top: px;*/
+.question-container li {
 	font-size: 2em;
 	width: 42.5%;
 	max-width: 450px;
@@ -132,27 +130,12 @@ h1 {
 }
 
 /*
-.active-question .option1:hover,
-.active-question .option2:hover,
-.active-question .option3:hover,
-.active-question .option4:hover,
-.active-question .option5:hover,
-.active-question .option6:hover,
-.active-question .option7:hover,
-.active-question .option8:hover {
-	background: rgba(95, 94, 114, 0.88);
-	transition: background 1s;
-	font-size: 130%;
-	cursor: pointer;
-}
-*/
 
-
-.active-question button {
+.question-container button {
 	width: 340px;
 	height: 110px;
 	background-color: #008000;
-/*	border-radius: 18px;*/
+	border-radius: 18px;
 	color: #fff;
 	font-size: 2.5em;
 	text-transform: uppercase;
@@ -164,6 +147,7 @@ h1 {
 	background-color: rgb(79, 214, 90);
 	transition: background-color 1s;
 }
+*/
 
 /*------------------------------*/
 /*  HIDDEN ANSWER OVERLAY STYLES   */
@@ -219,18 +203,17 @@ h1 {
 /*  GAME START OVERLAY STYLES   */
 /*------------------------------*/
 
-.game-start-overlay {
+.game-start-show {
 	height: 800px;
 	text-align: center;
-	visibility: hidden;
 	background-color: rgba(0, 0, 0, 0.93);
 	position: relative;
-	top: -1600px;
+	top: -1000px;
 	left: 0;
-	z-index: 98;
+	z-index: 101;
 }
 
-.game-start-overlay > button {
+.game-start-show > button {
 	margin-top: 180px;
 	width: 8em;
 	height: 8em;
@@ -243,7 +226,7 @@ h1 {
 	color: #fff;
 }
 
-.game-start-overlay > button:hover {
+.game-start-show > button:hover {
 	background-color: rgb(79, 214, 90);
 	transition: background-color 1s;
 }
