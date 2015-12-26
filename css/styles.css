@@ -174,9 +174,10 @@ h1 {
 	color: #fff;
 }
 
-.answer-reveal > h3 {
+.answer-reveal > h3,
+.answer-reveal > h4 {
 	width: 80%;
-	margin: 0 auto;
+	margin: 10px auto;
 	font-size: 2em;
 	height: auto;
 	word-wrap: break-word;

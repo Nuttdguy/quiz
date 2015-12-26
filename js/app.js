@@ -36,8 +36,9 @@ $(document).ready(function() {
 // -------- END QUESTIONS AND ANSWERS -------- //
 	
 	var score = 0;
-	var gameOverCount = 5;
+	var gameOverCount = 4;
 	var gameTally = 0;
+	var gameQuestionsLeft;
 	var prepInsectQuestions;
 	var prepAnswers;
 	
@@ -74,9 +75,11 @@ $(document).ready(function() {
 	var prepLinkTags = '<li><span class="default"> </span></li>';
 	var linkIndexForCorrectAnswer;
 	
+	var $answerH1 = $('.answer h1');
 	var $answerH2 = $('.answer h2');
 	var $answerH3 = $('.answer h3');
-	var $answerH1 = $('.answer h1');
+	var $answerH4 = $('.answer h4');
+
 	
 	
 	newGame();
@@ -137,6 +140,7 @@ $(document).ready(function() {
 	function resetGame() {
 		score = 0;
 		gameTally = 0;
+		gameQuestionsLeft;
 		
 		$('.active-question li').remove();
 		$('.answer').removeClass('answer-reveal');
@@ -150,7 +154,7 @@ $(document).ready(function() {
 	
 	function endGame() {
 		
-		if(gameTally === 4) {
+		if(gameTally === 6) {
 			resetGame();
 		}
 		
@@ -338,6 +342,7 @@ $(document).ready(function() {
 				$answerH3.text('You got it wrong this time');
 				showAnswerReveal();
 				$answerH1.text('YOUR SCORE:  ' + score + ' of ' + gameTally);
+				$answerH4.text('You have ' + gameQuestionsLeft + ' questions to answer');;
 			}
 		})
 		
@@ -347,6 +352,7 @@ $(document).ready(function() {
 				showAnswerReveal();
 				score++;
 				$answerH1.text('YOUR SCORE:  ' + score + ' of ' + gameTally);
+				$answerH4.text('You have ' + gameQuestionsLeft + ' questions to answer');;
 			}
 		})
 		
@@ -356,6 +362,7 @@ $(document).ready(function() {
 				showAnswerReveal();
 				score++;
 				$answerH1.text('YOUR SCORE:  ' + score + ' of ' + gameTally);
+				$answerH4.text('You have ' + gameQuestionsLeft + ' questions to answer');;
 			}
 		})
 		
@@ -364,6 +371,7 @@ $(document).ready(function() {
 				showAnswer(useThisQuestionNumber);
 				score++;
 				$answerH1.text('YOUR SCORE:  ' + score + ' of ' + gameTally);
+				$answerH4.text('You have ' + gameQuestionsLeft + ' questions to answer');;
 			}
 		})
 		
@@ -373,10 +381,12 @@ $(document).ready(function() {
 				showAnswerReveal();
 				score++;
 				$answerH1.text('YOUR SCORE:  ' + score + ' of ' + gameTally);
+				$answerH4.text('You have ' + gameQuestionsLeft + ' questions to answer');;
 			}
 		})
 		
 		gameTally++;
+		gameQuestionsLeft = gameOverCount--;
 		
 	}
 	
