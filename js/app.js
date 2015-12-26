@@ -43,7 +43,9 @@ $(document).ready(function() {
 
 // -------- END QUESTIONS AND ANSWERS -------- //
 	
-	var score = 0;	
+	var score = 0;
+	var gameOverCount = 5;
+	var gameTally = 0;
 	var prepInsectQuestions;
 	var prepAnswers;
 	
@@ -84,7 +86,7 @@ $(document).ready(function() {
 	
 	
 	newGame();
-	//nextQuestion();
+	nextQuestion();
 	
 	///////////////////// 	START OF FUNCTION
 	
@@ -94,23 +96,30 @@ $(document).ready(function() {
 			getQuestionNumber();
 			compileQuestions();
 			displayQuestion();
+			console.log(gameQuestions + ' -- In new game question list');
 			getQuestionImagesAndText();
 			showQuestionImagesAndText();
-//			updateQuestionList();
 			correctAnswer();
-//			nextQuestion();
-			console.log(gameQuestions);
 		})
 	}
 	
-//	function nextQuestion() {
-//		
-//		$('.next-question').on('click', function() {
-//			$('.active-question li').remove();
-//		})
-//		
-//	}
-//	
+	function nextQuestion() {
+		
+		$('.next-question').on('click', function() {
+			$('.active-question li').remove();
+			updateQuestionList();
+			console.log(gameQuestions + ' -- updated question list');
+			hideAnswerReveal();
+			getQuestionNumber();
+			compileQuestions();
+			displayQuestion();
+			getQuestionImagesAndText();
+			showQuestionImagesAndText();
+			correctAnswer();
+		})
+		
+	}
+	
 	
 	///////////////////// 	START OF FUNCTION
 	
@@ -297,9 +306,8 @@ $(document).ready(function() {
 			if (checkIndex0ForOptionC === false || checkIndex1ForOptionC === false || checkIndex2ForOptionC === false || checkIndex3ForOptionC === false) {
 				$answerH2.text('Sorry');
 				$answerH3.text('You got it wrong this time');
-				score;
-				$answerH1.text('YOUR SCORE:  ' + score + '  of 5');
 				showAnswerReveal();
+				$answerH1.text('YOUR SCORE:  ' + score + ' of ' + gameTally);
 			}
 		})
 		
@@ -307,6 +315,8 @@ $(document).ready(function() {
 			if (checkIndex0ForOptionC === true) {
 				showAnswer(useThisQuestionNumber);
 				showAnswerReveal();
+				score++;
+				$answerH1.text('YOUR SCORE:  ' + score + ' of ' + gameTally);
 			}
 		})
 		
@@ -314,13 +324,16 @@ $(document).ready(function() {
 			if (checkIndex1ForOptionC === true) {
 				showAnswer(useThisQuestionNumber);
 				showAnswerReveal();
+				score++;
+				$answerH1.text('YOUR SCORE:  ' + score + ' of ' + gameTally);
 			}
 		})
 		
 		$('.active-question li').eq(2).on('click', function() {
 			if (checkIndex2ForOptionC === true) {
 				showAnswer(useThisQuestionNumber);
-				showAnswerReveal();
+				score++;
+				$answerH1.text('YOUR SCORE:  ' + score + ' of ' + gameTally);
 			}
 		})
 		
@@ -328,8 +341,12 @@ $(document).ready(function() {
 			if (checkIndex3ForOptionC === true) {
 				showAnswer(useThisQuestionNumber);
 				showAnswerReveal();
+				score++;
+				$answerH1.text('YOUR SCORE:  ' + score + ' of ' + gameTally);
 			}
 		})
+		
+		gameTally++;
 		
 	}
 	
@@ -347,55 +364,46 @@ $(document).ready(function() {
 		})
 	}
 	
-//	function hideAnswerReveal() {
-//		
-//		$('.answer').removeClass('answer-reveal');
-//		
-//		$('.answer-reveal').fadeOut(500, function() {
-//			$(this).css({ 'display': 'block'});
-////				$('.answer-reveal').fadeIn(3000, function() {
-////			})
-//		})
-//		
-//	}
+	function hideAnswerReveal() {
+		
+		$('.answer-reveal').fadeOut(1000, function() {
+			$(this).css({ 'display': 'block'});
+				$('.question-container').fadeIn(3000, function() {
+					$('.answer').removeClass('answer-reveal');
+			})
+		})
+		
+	}
 	
 	///////////////////// 	START OF FUNCTION
 	
 	
 	function showAnswer(utqn) {
 		
-		var hasClassActive = $('active-question-li').hasClass('active');
-		
 		if(utqn === 0) { 
 			$answerH2.text(correctAnswers.correctAnt[0]);
 			$answerH3.text(correctAnswers.correctAnt[1]);
-			score++;
-			$answerH1.text('YOUR SCORE:  ' + score);
 		}
 		if(utqn === 1) { 
 			$answerH2.text(correctAnswers.correctSpider[0]);
 			$answerH3.text(correctAnswers.correctSpider[1]);
-			score++;
-			$answerH1.text('YOUR SCORE:  ' + score);
 		} 
 		if(utqn === 2) { 
 			$answerH2.text(correctAnswers.correctSnake[0]);
 			$answerH3.text(correctAnswers.correctSnake[1]);
-			score++;
-			$answerH1.text('YOUR SCORE:  ' + score);
 		}
 		if(utqn === 3) { 
 			$answerH2.text(correctAnswers.correctPoisonous[0]);
 			$answerH3.text(correctAnswers.correctPoisonous[1]);
-			score++;
-			$answerH1.text('YOUR SCORE:  ' + score);
 		}
 		if(utqn === 4) { 
 			$answerH2.text(correctAnswers.correctLargestInsect[0]);
 			$answerH3.text(correctAnswers.correctLargestInsect[1]);
-			score++;
-			$answerH1.text('YOUR SCORE:  ' + score);
-		} 
+//			score++;
+//			gameTally = score + gameTally;
+//			$answerH1.text('YOUR SCORE:  ' + score + ' of ' + gameTally);
+		}
+
 		
 	}
 	
