@@ -142,6 +142,7 @@ $(document).ready(function() {
 		gameTally = 0;
 		gameQuestionsLeft;
 		
+		$('.active-question li').remove();
 		$('.game-start').css({'display': 'block', 'z-index': '130'});
 		
 		$('.answer').css({'display': 'none', 'z-index' : '110' });
