@@ -37,7 +37,7 @@ li {
 /*------------------------------*/
 
 .information-header {
-	height: 140px;
+	height: 15vh;
 	margin: 0 auto;
 	text-align: center;
 	text-transform: uppercase;
@@ -64,7 +64,7 @@ h1 {
 /*------------------------------*/
 
 .game-container {
-	height: 620px;
+	height: 85vh;
 	width: 100%;
 	position: relative;
 	top: 0;
@@ -75,24 +75,23 @@ h1 {
 /*  QUESTION CONTAINER STYLES   */
 /*------------------------------*/
 
-.question-container {
-	height: 800px;
+.question {
+	height: 100%;
 	width: 100%;
 	position: relative;
-/*	visibility: hidden;*/
+	display: none;
 	top: 0;
-	z-index: 100;
 }
 
 .question-container {
+	height: 100%;
 	text-align: center;
 }
 
-.question-container  h2 {
+.question-container h2 {
 	padding-top: 30px;
 	width: 80%;
 	margin: 0 auto;
-/*	min-width: 400px;*/
 	height: 100px;
 	word-wrap: break-word;
 }
@@ -100,7 +99,7 @@ h1 {
 .question-container ul {
 	max-width: 80%;
 	margin: 0 auto 40px;;
-	height: 380px;
+	height: 550px;
 	color: #fff;
 }
 
@@ -116,52 +115,37 @@ h1 {
 
 .default {
 	height: 220px;
-	display: block;
+	display: inline-block;
 	line-height: 200px;
 	width: 100%;
-	z-index: 2;
+	overflow: auto;
 	background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5));
 }
 
 .default:hover {
 	background: rgba(95, 94, 114, 0.88);
 	transition: background 1s;
-	font-size: 130%;
+	font-size: 115%;
 	cursor: pointer;
 }
-
-/*
-
-.question-container button {
-	width: 340px;
-	height: 110px;
-	background-color: #008000;
-	border-radius: 18px;
-	color: #fff;
-	font-size: 2.5em;
-	text-transform: uppercase;
-	padding: 10px;
-	cursor: pointer;
-}
-
-.active-question button:hover {
-	background-color: rgb(79, 214, 90);
-	transition: background-color 1s;
-}
-*/
 
 /*------------------------------*/
 /*  HIDDEN ANSWER OVERLAY STYLES   */
 /*------------------------------*/
 
+
+.answer {
+	height: 100%;
+	position: relative;
+	top: 0;
+	left: 0;
+	display: none;
+}
+
 .answer-reveal {
-	height: 800px;
+	height: 100%;
 	text-align: center;
 	background-color: rgba(0, 0, 0, 0.93);
-	position: relative;
-	top: -800px;
-	left: 0;
-	z-index: 99;
 }
 
 .answer-reveal > h2 {
@@ -205,14 +189,18 @@ h1 {
 /*  GAME START OVERLAY STYLES   */
 /*------------------------------*/
 
+.game-start {
+	height: 100%;
+	position: relative;
+	top: 0;
+	left: 0;
+	display: block;
+}
+
 .game-start-show {
-	height: 800px;
+	height: 100%;
 	text-align: center;
 	background-color: rgba(0, 0, 0, 0.93);
-	position: relative;
-	top: -1000px;
-	left: 0;
-	z-index: 101;
 }
 
 .game-start-show > button {
@@ -233,59 +221,9 @@ h1 {
 	transition: background-color 1s;
 }
 
-
-/*------------------------------*/
-/*  SCORE UPDATE CONTAINER STYLES   */
-/*------------------------------*/
-
-.score-container {
-	height: 160px;
-	text-align: center;
-	background-color: rgba(0, 0, 0, 0.33);
-	color: rgba(165, 50, 50, 0.984);
+.game-start-show i {
+	padding-top: .16em;
 }
-
-/*------------------------------*/
-/*  SCORE KEEPER STYLES   */
-/*------------------------------*/
-
-.score-keeper {
-	height: 160px;
-	z-index: 1;
-/*	visibility: hidden;*/
-}
-
-.score-keeper > h2 {
-	padding: 40px 20px;
-	font-size: 3em;
-}
-
-
-/*------------------------------*/
-/*  HIDDEN QUIZ CATEGORY STYLES   */
-/*------------------------------*/
-
-.hidden-category-overlay{
-	position: relative;
-	top: -160px;
-	height: 260px;
-	background-color: black;
-	display: none;
-	z-index: 99;
-}
-
-.hidden-category-overlay button {
-	margin: 40px 20px;
-	padding: 20px;
-	font-size: 2.5em;
-	width: 340px;
-	text-align: center;
-	color: #fff;
-	background-color: transparent;
-}
-
-
-
 
 
 

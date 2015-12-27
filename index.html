@@ -19,9 +19,9 @@
 		
 		<section class="game-container"> <!-- BEGIN -->
 		
-			<div class="question question-container"> <!-- BEGIN -->
-				<div class="active-question">
-					<h2>Active Question Number One</h2>
+			<div class="question"> <!-- BEGIN -->
+				<div class="active-question question-container">
+					<h2></h2>
 					<ul>
 <!--
 						<li class='option1'><span>For option #1</span></li>
@@ -34,17 +34,21 @@
 				</div>
 			</div> <!-- END CONTAINER FOR QUESTIONS -->
 			
-			<div class="answer"> <!-- this will be an overlay with answer after user answers question. -->
-				<h2>Answer To Question Here</h2>
-				<h3>Description</h3>
-				<h1>Current Score</h1>
-				<button class="next-question">Next Question</button>
-				<h4> </h4>
+			<div class="answer" > <!-- this will be an overlay with answer after user answers question. -->
+				<div class="answer-reveal">	
+					<h2>Answer To Question Here</h2>
+					<h3>Description</h3>
+					<h1>Current Score</h1>
+					<button class="next-question">Next Question</button>
+					<h4> </h4>
+				</div>
 			</div>
 			
-			<div class="game-start game-start-show"> <!-- This will contain button to start game -->
+			<div class="game-start"> <!-- This will contain button to start game -->
+				<div class="game-start-show">
 <!--				<h1>Start Game</h1>-->
-				<button class="submit"><i class="fa fa-play-circle-o fa-5x"></i></button>
+					<button class="submit"><i class="fa fa-play-circle-o fa-5x"></i><br>Start Game</button>
+				</div>
 			</div>
 			
 		</section>  <!-- END SECTION "GAME-CONTAINER" FOR QUESTIONS -->

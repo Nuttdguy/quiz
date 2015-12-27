@@ -106,7 +106,6 @@ $(document).ready(function() {
 			$('.active-question li').remove();
 			hideAnswerReveal();
 			getQuestionNumber();
-			// getGameQuestionAfterGameStart();
 			displayQuestion();
 			getQuestionImagesAndText();
 			showQuestionImagesAndText();
@@ -126,12 +125,13 @@ $(document).ready(function() {
 	
 	function hideStartButton() {
 		
-		$('.game-start').fadeOut(500, function() {
-			$('.game-start').addClass('game-start-show');
-		})
+		$('.game-start').css({'display': 'none', 'z-index': '110'});
 		
-		$('.question').addClass('question-container');
+		$('.answer').css({'display': 'none', 'z-index' : '120' });
 		
+//		$('.question').fadeIn(1500, function() { 
+			$('.question').css({'display' : 'block', 'z-index' : '130'});
+//		})
 		
 	}
 	
@@ -142,12 +142,11 @@ $(document).ready(function() {
 		gameTally = 0;
 		gameQuestionsLeft;
 		
-		$('.active-question li').remove();
-		$('.answer').removeClass('answer-reveal');
+		$('.game-start').css({'display': 'block', 'z-index': '130'});
 		
-		$('.game-start').fadeIn(500, function() {
-			$('.game-start').addClass('game-start-show');
-		})
+		$('.answer').css({'display': 'none', 'z-index' : '110' });
+		$('.question').css({'display' : 'none', 'z-index' : '120'});
+		
 	}
 	
 	///////////////////// 	START OF FUNCTION
@@ -271,8 +270,6 @@ $(document).ready(function() {
 				$('.active-question ul').append(prepLinkTags);// SETTING VARIABLES; HAVE TO BE PRIVATE TO THE LOOP. OTHERWISE THE 'ITERATOR' DOESN'T REGISTER DYNAMICALLY.
 				$('.active-question span').last().text(choicesToLoad[start]); // ADDING TEXT TO THE LAST LINK CREATED.
 				$('.active-question li').last().css({'background-image': 'url('+imagesToLoad[start]+')', 'background-size': 'cover'}); // APPLYING CSS TO NEW LINNK ELEMENT
-				//$('.active-question li').last().addClass('option');
-				//$('.active-question span').last().css({'background': 'linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5))'}); // APPLYING CSS TO NEW SPAN ELEMENT
 
 				if (stop ) {
 					$('.active-question span').eq(linkIndexForCorrectAnswer).text(choicesToLoad[0]); // REPLACING TEXT WITH CORRECT ANSWER
@@ -289,13 +286,10 @@ $(document).ready(function() {
 				$('.active-question ul').append(prepLinkTags); // SETTING VARIABLES; HAVE TO BE PRIVATE TO THE LOOP. OTHERWISE THE 'ITERATOR' DOESN'T REGISTER DYNAMICALLY.				
 				$('.active-question span').last().text(choicesToLoad[start-1]); // ADDING TEXT TO THE LAST LINK CREATED.
 				$('.active-question li').last().css({'background-image': 'url('+imagesToLoad[start-1]+')', 'background-size': 'cover'}); // APPLYING CSS TO NEW LINNK ELEMENT
-				//$('.active-question li').last().addClass('option');
-				//$('.active-question span').last().css({'background': 'linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5))'}); // APPLYING CSS TO NEW SPAN ELEMENT
 				
 				if(stop + 1) {
 					$('.active-question span').eq(linkIndexForCorrectAnswer).text(choicesToLoad[0]); // REPLACING TEXT WITH CORRECT ANSWER
 					$('.active-question li').eq(linkIndexForCorrectAnswer).css({'background-image': 'url('+imagesToLoad[0]+')', 'background-size': 'cover'});
-					//$('.active-question span').eq(linkIndexForCorrectAnswer).css({'background': 'linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5))'}); // APPLYING CSS STYLES
 					$('.active-question li').eq(linkIndexForCorrectAnswer).addClass('optionC');
 				}
 
@@ -309,12 +303,10 @@ $(document).ready(function() {
 					$('.active-question ul').append(prepLinkTags);
 					$('.active-question span').last().text(choicesToLoad[start + 1]);
 					$('.active-question li').last().css({'background-image': 'url('+imagesToLoad[start + 1]+')', 'background-size': 'cover'});
-					//$('.active-question li').last().addClass('option');
-					//$('.active-question span').last().css({'background': 'linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5))'});
+
 				} else if (stop) {
 					$('.active-question span').eq(linkIndexForCorrectAnswer).text(choicesToLoad[0]); 
 					$('.active-question li').eq(linkIndexForCorrectAnswer).css({'background-image': 'url('+imagesToLoad[0]+')', 'background-size': 'cover'});
-					//$('.active-question span').eq(linkIndexForCorrectAnswer).css({'background': 'linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5))'});
 					$('.active-question li').eq(linkIndexForCorrectAnswer).addClass('optionC');
 				} 
 			} // END 3RD / CATCH LOOP
@@ -369,6 +361,7 @@ $(document).ready(function() {
 		$('.active-question li').eq(2).on('click', function() {
 			if (checkIndex2ForOptionC === true) {
 				showAnswer(useThisQuestionNumber);
+				showAnswerReveal();
 				score++;
 				$answerH1.text('YOUR SCORE:  ' + score + ' of ' + gameTally);
 				$answerH4.text('You have ' + gameQuestionsLeft + ' questions to answer');;
@@ -394,26 +387,31 @@ $(document).ready(function() {
 	
 	
 	function showAnswerReveal() {
-
-		$('.answer').addClass('answer-reveal');
 		
-		$('.question-container').fadeOut(500, function() {
-			$(this).css({'z-index': '90', 'display': 'block'});
-			$('.answer-reveal').fadeIn(1000, function() {
+		$('.question').fadeOut(500, function() {
+			$('.question').css({'display' : 'none', 'z-index' : '120'});
+			$('.answer').fadeIn(500, function() {
+				$('.answer').css({'display': 'block', 'z-index' : '130'});
 			})
 		})
+
 	}
 	
 	///////////////////// 	START OF FUNCTION
 	
 	function hideAnswerReveal() {
 		
-		$('.answer').fadeOut(1000, function() {
-			$(this).css({ 'display': 'block'});
-			$('.question-container').fadeIn(1000, function() {
-				$('.answer').removeClass('answer-reveal');
+		if (gameTally < 5) {
+			$('.answer').fadeOut(500, function() {
+				$('.answer').css({'display' : 'none', 'z-index' : '120'});
+				$('.question').fadeIn(500, function() {
+					$('.question').css({'display': 'block', 'z-index' : '130'});
+				})
 			})
-		})
+		} else {
+			$('.question').css({'display': 'block', 'z-index' : '130'});
+			$('.answer').css({'display' : 'none', 'z-index' : '120'});
+		}
 		
 	}
 	
