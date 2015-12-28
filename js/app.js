@@ -140,6 +140,7 @@ $(document).ready(function() {
 	function resetGame() {
 		score = 0;
 		gameTally = 0;
+		gameOverCount = 4;
 		gameQuestionsLeft;
 		
 		$('.active-question li').remove();

@@ -118,7 +118,7 @@ h1 {
 	display: inline-block;
 	line-height: 200px;
 	width: 100%;
-	overflow: auto;
+	overflow: hidden;
 	background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5));
 }
 
@@ -152,7 +152,7 @@ h1 {
 	width: 80%;
 	margin: 0 auto;
 	font-size: 3.2em;
-	padding-top: 60px;
+	padding-top: 30px;
 	height: 90px;
 	word-wrap: break-word;
 	color: #fff;
@@ -172,17 +172,21 @@ h1 {
 .answer-reveal > h1 {
 	height: 100px;
 	font-size: 3.2em;
-	padding: 30px 0 0;
+	padding: 20px 0 0px;
 	color: #fff;
 }
 
 .answer-reveal > button {
-	margin-top: 40px;
 	padding: 20px 20px;
 	font-size: 2.5em;
 	background-color: firebrick;
 	border: 1px solid #000;
 	color: #fff;
+}
+
+.answer-reveal > button:hover {
+	background-color: #f02c2c;
+	transition: background-color .65s;
 }
 
 /*------------------------------*/
@@ -224,6 +228,21 @@ h1 {
 .game-start-show i {
 	padding-top: .16em;
 }
+
+.game-start-show i:hover,
+.game-start-show button:hover,
+.default:hover {
+	text-shadow: 1px 1px 2px rgba(80, 78, 78, 0.32),
+							1px 1px 2px rgba(80, 78, 78, 0.32),
+							1px 2px 3px rgba(80, 78, 78, 0.32),
+							1px 2px 3px rgba(80, 78, 78, 0.32),
+							2px 3px 4px rgba(80, 78, 78, 0.32),
+							2px 3px 4px rgba(80, 78, 78, 0.32),
+							2px 4px 5px rgba(80, 78, 78, 0.32),
+							2px 4px 5px rgba(80, 78, 78, 0.32);
+}
+
+
 
 
 
